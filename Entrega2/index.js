@@ -1,6 +1,7 @@
 import { render as renderHome } from "./components/home.js";
 import { render as renderComponent1 } from "./components/component1.js";
 import { render as renderCards } from "./components/cards.js";
+import { render as renderContratosClientes } from "./components/servicioContratado.js";
 
 const navbarList = document.getElementById("navbar-list");
 
@@ -59,4 +60,7 @@ document.getElementById("component-1").addEventListener("click", () => {
 
 document.getElementById("cards").addEventListener("click", () => {
   renderCards(body);
+});
+document.getElementById("contratosClientes").addEventListener("click", () => {
+  renderContratosClientes(body);
 });
