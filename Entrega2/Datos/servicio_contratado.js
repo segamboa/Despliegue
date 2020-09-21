@@ -1,4 +1,4 @@
-[{"id":1,"fk_servicio":128,"fk_cliente":38,"calificacion":5,"fecha_contrato":"08/04/2017"},
+export const data = [{"id":1,"fk_servicio":128,"fk_cliente":38,"calificacion":5,"fecha_contrato":"08/04/2017"},
 {"id":2,"fk_servicio":7,"fk_cliente":14,"calificacion":4,"fecha_contrato":"04/08/2019"},
 {"id":3,"fk_servicio":49,"fk_cliente":25,"calificacion":2,"fecha_contrato":"29/05/2014"},
 {"id":4,"fk_servicio":8,"fk_cliente":27,"calificacion":5,"fecha_contrato":"16/05/2018"},
