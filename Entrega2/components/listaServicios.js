@@ -29,8 +29,7 @@ const renderServicios = (servicios) => {
   return cardDeck;
 };
 
-export const render = () => {
-  let body = document.getElementById("body");
+export const render = (body) => {
   body.innerHTML = "";
 
   let cardDeck = renderServicios(serviciosData);
