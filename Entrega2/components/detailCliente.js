@@ -1,10 +1,12 @@
 import { clientes } from "../Datos/clientes.js";
-import { data as serviciosData } from "../Datos/servicio_contratado.js";
+import { data as serviciosContratadosData } from "../Datos/servicio_contratado.js";
 import { servicios as serviciosData } from "../Datos/servicio.js";
 
 export const render = (id) => {
   let cliente = clientes.find((item) => item.id === id);
-  let serviciosCliente = serviciosData.filter((item) => item.fk_cliente === id);
+  let serviciosCliente = serviciosContratadosData.filter(
+    (item) => item.fk_cliente === id
+  );
 
   let body = document.getElementById("body");
 
