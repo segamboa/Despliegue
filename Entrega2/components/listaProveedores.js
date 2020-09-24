@@ -1,30 +1,35 @@
-const html = "<h1>Contratos clientes</h1>";
-import { data } from "../Datos/servicio_contratado.js";
+const html = "<h1>Proveedores</h1>";
+
+import { data } from "../Datos/listaProveedores.js";
 let servicioContratado = [];
 var table = document.createElement("table");
-import { render as renderCliente } from "./detailCliente.js";
+
 
 let inicializarObjetos = (jCadena) => {
   jCadena.forEach((element) => {
     servicioContratado.push(
-      new ServicioContratado(
+      new Proveedor(
         element.id,
-        element.fk_servicio,
-        element.fk_cliente,
-        element.calificacion,
-        element.fecha_contrato
+        element.nombre,
+        element.direccion,
+        element.telefono,
+        element.correo,
+        element.nit,
+        element.ciudad
       )
     );
   });
 };
 
-class ServicioContratado {
-  constructor(id, fk_servicio, fk_cliente, calificacion, fecha_contrato) {
+class Proveedor {
+  constructor(id, nombre, direccion, telefono, correo, nit, ciudad) { 
     this.id = id;
-    this.fk_servicio = fk_servicio;
-    this.fk_cliente = fk_cliente;
-    this.calificacion = calificacion;
-    this.fecha_contrato = fecha_contrato;
+    this.nombre = nombre;
+    this.direccion = direccion;
+    this.telefono = telefono;
+    this.correo = correo;
+    this.nit = nit;
+    this.ciudad = ciudad;
   }
 }
 let crearTabla = () => {
@@ -34,17 +39,23 @@ let crearTabla = () => {
   thid.innerHTML = "Id";
   tr.appendChild(thid);
   var thservicio = document.createElement("th");
-  thservicio.innerHTML = "Servicio";
+  thservicio.innerHTML = "Nombre";
   tr.appendChild(thservicio);
   var thcliente = document.createElement("th");
-  thcliente.innerHTML = "Cliente";
+  thcliente.innerHTML = "Dirección";
   tr.appendChild(thcliente);
   var thcalificacion = document.createElement("th");
-  thcalificacion.innerHTML = "Calificación";
+  thcalificacion.innerHTML = "Telefono";
   tr.appendChild(thcalificacion);
   var thfecha = document.createElement("th");
-  thfecha.innerHTML = "Servicio";
+  thfecha.innerHTML = "Correo";
   tr.appendChild(thfecha);
+  var thnit = document.createElement("th");
+  thnit.innerHTML = "NIT";
+  tr.appendChild(thnit);
+  var thciudad = document.createElement("th");
+  thciudad.innerHTML = "Ciudad";
+  tr.appendChild(thciudad);
   servicioContratado.forEach((element) => {
     tr = table.insertRow(-1);
     for (var propt in element) {
@@ -52,14 +63,6 @@ let crearTabla = () => {
       td.innerText = element[propt];
       tr.appendChild(td);
     }
-    let buttonDetailCliente = document.createElement("button");
-    buttonDetailCliente.addEventListener("click", () => {
-      renderCliente(element.fk_cliente);
-    });
-    buttonDetailCliente.innerHTML = "Ver cliente";
-    buttonDetailCliente.classList.add("btn");
-    buttonDetailCliente.classList.add("btn-secondary");
-    tr.appendChild(buttonDetailCliente);
     table.appendChild(tr);
   });
 };

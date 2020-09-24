@@ -16,12 +16,27 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="stylesHome.css" />
 
-    <title>Hello, world!</title>
+    <title>Hephaestus Group Project</title>
   </head>
   <body>
+    <div class="onoffswitch">
+      <input
+        type="checkbox"
+        name="onoffswitch"
+        class="onoffswitch-checkbox"
+        id="myonoffswitch"
+        tabindex="0"
+        checked
+      />
+      <label class="onoffswitch-label" for="myonoffswitch">
+        <span class="onoffswitch-inner" id="switch"></span>
+        <span class="onoffswitch-switch"></span>
+      </label>
+    </div>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="#" id="home">Navbar</a>
+      <a class="navbar-brand" href="#" id="home">Inicio</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -37,26 +52,22 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#" id="component-1">Component 1</a>
+            <a class="nav-link" href="#" id="proveedores">Proveedores</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#" id="cards">Cards</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#" id="contratosClientes">Contratos clientes</a>
+            <a class="nav-link" href="#" id="contratosClientes"
+              >Contratos clientes</a
+            >
           </li>
           <div id="navbar-list"></div>
         </ul>
       </div>
     </nav>
-    <button class="btn btn-primary" id="clientes-navbar">
-      Clientes navbar
-    </button>
-    <button class="btn btn-primary" id="proveedores-navbar">
-      Proveedores navbar
-    </button>
 
-    <div class="container-md" id="body"></div>
+    <div id="body"></div>
 
     <script type="module" src="index.js"></script>
     <script
