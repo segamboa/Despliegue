@@ -21,6 +21,20 @@
     <title>Hello, world!</title>
   </head>
   <body>
+    <div class="onoffswitch">
+      <input
+        type="checkbox"
+        name="onoffswitch"
+        class="onoffswitch-checkbox"
+        id="myonoffswitch"
+        tabindex="0"
+        checked
+      />
+      <label class="onoffswitch-label" for="myonoffswitch">
+        <span class="onoffswitch-inner" id="switch"></span>
+        <span class="onoffswitch-switch"></span>
+      </label>
+    </div>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <a class="navbar-brand" href="#" id="home">Navbar</a>
       <button
@@ -52,12 +66,6 @@
         </ul>
       </div>
     </nav>
-    <button class="btn btn-primary" id="clientes-navbar">
-      Clientes navbar
-    </button>
-    <button class="btn btn-primary" id="proveedores-navbar">
-      Proveedores navbar
-    </button>
 
     <div id="body"></div>
 
