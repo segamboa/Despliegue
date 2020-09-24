@@ -9,8 +9,6 @@
 .fontNunito {
   font-family: "Nunito Sans";
 }
-
-/* Banner de la página */
 .banner {
   z-index: 1;
   background: url(../images/home-banner.jpg) scroll;
@@ -113,7 +111,6 @@
   margin: auto;
 }
 
-/* Servicios ofrecidos */
 .services {
   padding-top: 120px;
   padding-bottom: 120px;
@@ -148,8 +145,6 @@
   color: #ff5733;
 }
 
-/* Sobre nosotros */
-
 .divSeccion {
   padding: 2.5em 0;
 }
@@ -179,7 +174,6 @@
   font-family: "Nunito Sans";
 }
 
-/* Proyectos realizados*/
 .projects_item {
   position: relative;
   overflow: hidden;
@@ -227,14 +221,20 @@
   max-width: 45.31%;
 }
 
-/*Servicios más populares*/
 .serviciosPopulares {
   padding-top: 120px;
   padding-bottom: 120px;
   background: #f9f9ff;
 }
 
-/*Formulario de contacto*/
+.col-md-4 img {
+  height: 100%;
+}
+
+.card-body:hover h5 {
+  color: #ff5733;
+}
+
 .form-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -253,11 +253,11 @@
   margin-bottom: 1rem;
 }
 
-.btnForm {
+.form-group .btn {
   background: #ff5733;
+  color: #fff;
 }
 
-/*Footer de la página*/
 .footer_area {
   padding-top: 120px;
   padding-bottom: 120px;
