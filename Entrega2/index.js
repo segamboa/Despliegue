@@ -7,30 +7,23 @@ const navbarList = document.getElementById("navbar-list");
 
 document.getElementById("clientes-navbar").addEventListener("click", () => {
   navbarList.innerHTML = "";
-  const item = document.createElement("li");
-  const anchor = document.createElement("a");
-
-  anchor.appendChild(document.createTextNode("Clientes component 1"));
-  anchor.href = "#";
-  anchor.classList.add("nav-link");
-
-  item.appendChild(anchor);
-  item.classList.add("nav-item");
-  item.classList.add("active");
-
-  item.addEventListener("click", () => {
+  appendNavbarElement("Clientes component 1", () => {
     console.log("render component");
   });
-
-  navbarList.appendChild(item);
 });
 
 document.getElementById("proveedores-navbar").addEventListener("click", () => {
   navbarList.innerHTML = "";
+  appendNavbarElement("Proveedor component 1", () =>
+    console.log("proveedor component 1")
+  );
+});
+
+const appendNavbarElement = (text, action) => {
   const item = document.createElement("li");
   const anchor = document.createElement("a");
 
-  anchor.appendChild(document.createTextNode("Proveedor component 1"));
+  anchor.appendChild(document.createTextNode(text));
   anchor.href = "#";
   anchor.classList.add("nav-link");
 
@@ -38,12 +31,10 @@ document.getElementById("proveedores-navbar").addEventListener("click", () => {
   item.classList.add("nav-item");
   item.classList.add("active");
 
-  item.addEventListener("click", () => {
-    console.log("render component");
-  });
+  item.addEventListener("click", action);
 
   navbarList.appendChild(item);
-});
+};
 
 const body = document.getElementById("body");
 
