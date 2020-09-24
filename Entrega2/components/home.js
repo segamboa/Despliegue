@@ -1,18 +1,26 @@
-const html = `<header class="banner">
+import { data } from "../Datos/servicio_contratado.js";
+import { servicios } from "../Datos/servicio.js";
+let html = `<header class="banner">
 <div class="banner_inner">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-12 text-center">
-        <div class="banner_content">
-          <h2 class="font-weight-bold mb-5">
-            Precise concept design <br />for stylish living
-          </h2>
-          <p class="text-center">
-            If you are looking at blank cassettes on the web, you may be
-            very confused at the difference in price. You may see some for
-            as low as $.17 each.
-          </p>
-          <a class="banner_btn" href="#">Get Started</a>
+        <div class="container banner_content">
+          <div class="row justify-content-center">
+            <h2 class="font-weight-bold mb-5">
+              Precise concept design <br />for stylish living
+            </h2>
+          </div>
+          <div class="row justify-content-center">
+            <p class="centrado fontNunito">
+              If you are looking at blank cassettes on the web, you may be
+              very confused at the difference in price. You may see some
+              for as low as $.17 each.
+            </p>
+          </div>
+          <div class="row justify-content-center">
+            <a class="banner_btn" href="#">Get Started</a>
+          </div>
         </div>
       </div>
     </div>
@@ -36,11 +44,47 @@ const html = `<header class="banner">
         <div class="services_item">
           <img
             class="img-fluid"
-            src="images/furniture-1.jpg"
+            src="images/archInterior.jpg"
             alt="Service-1"
           />
           <h4>Arquitectura y diseño de interiores</h4>
-          <p>Blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa dsakjskf</p>
+          <p class="centrado">
+            Solicita servicios de diseño de interiores y arquitectura para
+            la remodelación de tus instalaciones. Desde el diseño hasta la
+            construcción, ¡te ofrecemos todo!.
+          </p>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="services_item">
+          <img
+            class="img-fluid"
+            src="images/carPlomeria.png"
+            alt="Service-2"
+          />
+          <h4 class="centrado">
+            Carpinteria, Plomeria y Servicios Varios
+          </h4>
+          <p class="centrado">
+            Tenemos un amplio catalogo de profesionales expertos en
+            carpinteria, plomeria, jardineria, tapiceria y demas servicios
+            varios para apoyar tus procesos de construcción y
+            remodelación.
+          </p>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="services_item">
+          <img
+            class="img-fluid"
+            src="images/limSeguridad.png"
+            alt="Service-3"
+          />
+          <h4 class="centrado">Seguridad y Aseo</h4>
+          <p class="centrado">
+            Contrata personal altamente calificado para mantener la
+            seguridad y el aseo de tus instalaciones.
+          </p>
         </div>
       </div>
     </div>
@@ -74,7 +118,7 @@ const html = `<header class="banner">
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              1. Tenemos los mejores diseñadores del mercado
+              1. Tenemos los mejores profesionales del mercado
             </button>
           </h2>
 
@@ -85,11 +129,10 @@ const html = `<header class="banner">
             data-parent="#accordionExample"
           >
             <div class="card-body">
-              <p>
-                Los diseñadores de nuestro catalogo son profesionales de
+              <p class="textBody">
+                Los profesionales de nuestro catalogo son profesionales de
                 alta calidad que estarán dispuestos a ayudarte a
-                desarrollar las ideas que tengas para los interiores de tu
-                organización.
+                desarrollar las actividades de tu compañia.
               </p>
             </div>
           </div>
@@ -103,7 +146,7 @@ const html = `<header class="banner">
               aria-expanded="false"
               aria-controls="collapseTwo"
             >
-              2. Cumple tus expectativas del resultado final
+              2. Cumple las expectativas organizacionales
             </button>
           </h2>
 
@@ -113,11 +156,12 @@ const html = `<header class="banner">
             aria-labelledby="headingTwo"
             data-parent="#accordionExample"
           >
-            <div class="card-body textBody">
+            <div class="card-body">
               <p class="textBody">
-                De esta manera, garantizamos que tanto el diseñador como
-                tú posean pleno conocimiento de como deberia lucir el
-                diseño final.
+                Nosotros te ayudamos a buscar y filtrar los profesionales
+                y servicios mejor adecuados para tus necesidades. Ademas,
+                puedes contactarlos y contratarlos a través de nuestra
+                página web sin ningún costo adicional.
               </p>
             </div>
           </div>
@@ -142,10 +186,10 @@ const html = `<header class="banner">
             data-parent="#accordionExample"
           >
             <div class="card-body">
-              <p>
-                Te permitimos participar activamente del proceso de
-                desarrollo para que puedas comunicarte con tu diseñador
-                asignado oportunamente.
+              <p class="textBody">
+                Te mostramos el estado de tu proyecto y puedes utilizar
+                nuestra plataforma como canal de comunicación y registro
+                de actividades de tus servicios.
               </p>
             </div>
           </div>
@@ -170,10 +214,10 @@ const html = `<header class="banner">
             data-parent="#accordionExample"
           >
             <div class="card-body">
-              <p>
-                Observa los resultados gráficos al terminar el proceso,
-                realiza modificaciones y continua con nosotros para
-                futuros proyectos.
+              <p class="textBody">
+                Observa los resultados al terminar el proceso, realiza
+                modificaciones y continua con nosotros para futuros
+                proyectos.
               </p>
             </div>
           </div>
@@ -192,46 +236,50 @@ const html = `<header class="banner">
   </div>
   <div class="row m0">
     <div class="projects_item wd_18">
-      <img src="images/projects-1.jpg" alt="" />
+      <img src="images/D1.jpg" alt="TIENDAD1" />
       <div class="hover">
-        <h4 class="font-weight-bold">Alex Complex for esidence</h4>
+        <h4 class="font-weight-bold">
+          Servicios de Limpieza de Tiendas D1
+        </h4>
         <p class="fontNunito">
-          LCD screens are uniquely modern in style, and the liquid
-          crystals that make them work have allowed humanity to create
-          slimmer.
+          Gracias a nuestros servicios, las tiendas D1 mantienen la
+          limpieza de sus instalaciones al contratar profesionales de
+          nuestro catalogo de proveedores.
         </p>
       </div>
     </div>
     <div class="projects_item wd_18">
-      <img src="images/projects-2.jpg" alt="" />
+      <img src="images/uniandes.jpg" alt="UNIANDES" />
       <div class="hover">
-        <h4 class="font-weight-bold">Alex Complex for esidence</h4>
+        <h4 class="font-weight-bold">
+          Seguridad de Universidad de Los Andes
+        </h4>
         <p>
-          LCD screens are uniquely modern in style, and the liquid
-          crystals that make them work have allowed humanity to create
-          slimmer.
+          Proveemos el contacto y contratación de los servicios de
+          seguridad para la Universidad de Los Andes.
         </p>
       </div>
     </div>
     <div class="projects_item wd_44">
-      <img src="images/projects-3.jpg" alt="" />
+      <img src="images/livin21.jpg" alt="LIVIN21" />
       <div class="hover">
-        <h4 class="font-weight-bold">Alex Complex for esidence</h4>
+        <h4 class="font-weight-bold">
+          Diseño y construcción de LivinnX 21
+        </h4>
         <p>
-          LCD screens are uniquely modern in style, and the liquid
-          crystals that make them work have allowed humanity to create
-          slimmer.
+          Profesionales contratados por medio de nuestra plataforma fueron
+          clave en el proceso de diseño y construcción de las viviendas
+          universitarias LivinnX 21.
         </p>
       </div>
     </div>
     <div class="projects_item wd_18">
-      <img src="images/projects-4.jpg" alt="" />
+      <img src="images/tapiceria.jpg" alt="TAPICERIA" />
       <div class="hover">
-        <h4 class="font-weight-bold">Alex Complex for esidence</h4>
+        <h4 class="font-weight-bold">Servicios de Tapiceria</h4>
         <p>
-          LCD screens are uniquely modern in style, and the liquid
-          crystals that make them work have allowed humanity to create
-          slimmer.
+          Hemos realizado mas de 500 servicios de tapiceria para nuestros
+          clientes
         </p>
       </div>
     </div>
@@ -250,94 +298,7 @@ const html = `<header class="banner">
       <p>Los tres servicios más populares entre nuestros clientes son:</p>
     </div>
 
-    <div class="row">
-      <div class="col-4">
-        <div class="card mb-3" style="max-width: 540px">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img
-                src="images/projects-1.jpg"
-                class="card-img"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a
-                  natural lead-in to additional content. This content is a
-                  little bit longer.
-                </p>
-                <p class="card-text">
-                  <small class="text-muted"
-                    >Last updated 3 mins ago</small
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="card mb-3" style="max-width: 540px">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img
-                src="images/projects-1.jpg"
-                class="card-img"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a
-                  natural lead-in to additional content. This content is a
-                  little bit longer.
-                </p>
-                <p class="card-text">
-                  <small class="text-muted"
-                    >Last updated 3 mins ago</small
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="card mb-3" style="max-width: 540px">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img
-                src="images/projects-1.jpg"
-                class="card-img"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a
-                  natural lead-in to additional content. This content is a
-                  little bit longer.
-                </p>
-                <p class="card-text">
-                  <small class="text-muted"
-                    >Last updated 3 mins ago</small
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="filaServiciosPopulares" class="row">REEMPLAZAR</div>
   </div>
 </section>
 
@@ -393,11 +354,7 @@ const html = `<header class="banner">
 
         <div class="row form-group">
           <div class="col-md-12">
-            <input
-              type="submit"
-              value="Enviar"
-              class="btnForm btn-primary rounded-0 btn-lg"
-            />
+            <input type="submit" value="Enviar" class="btn" />
           </div>
         </div>
       </form>
@@ -453,8 +410,86 @@ const html = `<header class="banner">
     </div>
   </div>
 </div>
-</footer>`;
+</footer>
+`;
+
+let serviciosPopulares = [];
+const categorias = [
+  "carpinteria",
+  "plomeria",
+  "disenio_interiores",
+  "jardineria",
+  "tapiceria",
+  "remodelacion",
+  "construccion",
+  "demolicion",
+  "limpieza",
+  "seguridad",
+];
+
+let calcularServiciosMasPopulares = () => {
+  let cantidades = [];
+  categorias.forEach((el) => {
+    let descripcion = "";
+    let cantidad = 0;
+    let ids = [];
+
+    servicios.forEach((element) => {
+      descripcion = element.descripcion;
+      if (element.categoria == el) {
+        ids.push(element.id);
+      }
+    });
+
+    ids.forEach((id) => {
+      cantidad = cantidad + data.filter((da) => da.fk_servicio == id).length;
+    });
+
+    cantidades.push({ tipo: el, desc: descripcion, num: cantidad });
+  });
+
+  cantidades = cantidades.sort((a, b) => b.num - a.num);
+  console.log(cantidades);
+  let i = 0;
+  let htmlServicios = "";
+  while (i < 3) {
+    let cadena =
+      `<div class="col-4">
+    <div class="card mb-3" style="max-width: 540px">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img
+            src="images/fondoPuntos.jpg"
+            class="card-img"
+            alt="..."
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">` +
+      cantidades[i].tipo +
+      `</h5>
+            <p class="card-text">` +
+      cantidades[i].desc +
+      `</p>
+            <p class="card-text">
+              <small class="text-muted">Contratado: ` +
+      cantidades[i].num +
+      ` veces</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+    htmlServicios = htmlServicios + cadena;
+    i = i + 1;
+  }
+  console.log(htmlServicios);
+  html = html.replace("REEMPLAZAR", htmlServicios);
+};
 
 export const render = (body) => {
+  calcularServiciosMasPopulares();
   body.innerHTML = html;
 };
