@@ -1,5 +1,5 @@
 import { render as renderHome } from "./components/home.js";
-import { render as renderComponent1 } from "./components/component1.js";
+import { render as renderProveedores } from "./components/listaProveedores.js";
 import { render as renderCards } from "./components/cards.js";
 import { render as renderContratosClientes } from "./components/servicioContratado.js";
 
@@ -12,8 +12,8 @@ document.getElementById("home").addEventListener("click", () => {
   renderHome(body);
 });
 
-document.getElementById("component-1").addEventListener("click", () => {
-  renderComponent1(body);
+document.getElementById("proveedores").addEventListener("click", () => {
+  renderProveedores(body);
 });
 
 document.getElementById("cards").addEventListener("click", () => {
