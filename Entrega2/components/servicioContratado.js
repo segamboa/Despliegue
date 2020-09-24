@@ -15,7 +15,6 @@ let inicializarObjetos = (jCadena) => {
       )
     );
   });
-  console.log(servicioContratado);
 };
 
 class ServicioContratado {
