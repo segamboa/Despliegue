@@ -2,6 +2,7 @@ const html = "<h1>Contratos clientes</h1>";
 import { data } from "../Datos/servicio_contratado.js";
 let servicioContratado = [];
 var table = document.createElement("table");
+import { render as renderCliente } from "./detailCliente.js";
 
 let inicializarObjetos = (jCadena) => {
   jCadena.forEach((element) => {
@@ -27,6 +28,7 @@ class ServicioContratado {
   }
 }
 let crearTabla = () => {
+  table.classList.add("table");
   var tr = table.insertRow(-1);
   var thid = document.createElement("th");
   thid.innerHTML = "Id";
@@ -50,6 +52,14 @@ let crearTabla = () => {
       td.innerText = element[propt];
       tr.appendChild(td);
     }
+    let buttonDetailCliente = document.createElement("button");
+    buttonDetailCliente.addEventListener("click", () => {
+      renderCliente(element.fk_cliente);
+    });
+    buttonDetailCliente.innerHTML = "Ver cliente";
+    buttonDetailCliente.classList.add("btn");
+    buttonDetailCliente.classList.add("btn-secondary");
+    tr.appendChild(buttonDetailCliente);
     table.appendChild(tr);
   });
 };

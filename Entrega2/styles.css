@@ -69,3 +69,9 @@
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 0px;
 }
+
+.card {
+  min-width: 13rem;
+  max-width: 13rem;
+  margin: 5px;
+}
