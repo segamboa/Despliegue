@@ -5,7 +5,7 @@ export const render = (id) => {
   const body = document.getElementById("body");
   body.classList.add("container-sm");
 
-  body.innerHTML = `<div>
+  body.innerHTML = `<div class ="texto">
   <h5>${proveedor.nombre}</h5>
     <p>
         Direccion: ${proveedor.direccion} <br/>

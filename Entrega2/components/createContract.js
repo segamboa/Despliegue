@@ -37,18 +37,19 @@ const sendCreateContactForm = () => {
 
 const createContractForm = () => {
   divContainer.className = "container-sm";
+  tituloCreate.classList.add('texto');
   tituloCreate.innerText = "Llena los datos de tu contrato aquí";
   const formHTML = `<form>\
         <div class = "form-group">\
-            <label for = "servicio">Servicio contratado</label>\
+            <label class ="texto" for = "servicio">Servicio contratado</label>\
             <input type = "text" class = "form-control" id = "inputServicio" placeholder = "El nombre del servicio contratado">\
         </div>\
         <div class = "form-group">\
-            <label for = "cliente">Cliente con quien contrata</label>\
+            <label class ="texto" for = "cliente">Cliente con quien contrata</label>\
             <input type = "text" class = "form-control" id = "inputCliente" placeholder = "Nombre del cliente">\
         </div>\
         <div class = "form-group">\
-            <label for = "precio">Precio pactado</label>\
+            <label class ="texto" for = "precio">Precio pactado</label>\
             <input type = "text" class = "form-control" id = "inputPrecio" placeholder = "Precio pactado con cliente">\
         </div>\
         <div>

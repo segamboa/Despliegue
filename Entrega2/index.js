@@ -54,8 +54,7 @@ const appendNavbarElement = (text, action) => {
 
 const renderClienteNavbar = () => {
   navbarList.innerHTML = "";
-  appendNavbarElement("Clientes componente 1", () => {
-    renderCreateContract(body);
+  appendNavbarElement("Clientes component 1", () => {
   });
 };
 
