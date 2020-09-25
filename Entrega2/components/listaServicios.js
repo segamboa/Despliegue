@@ -1,7 +1,7 @@
 import { servicios as serviciosData } from "../Datos/servicio.js";
 import { data as proveedoresData } from "../Datos/listaProveedores.js";
 
-import { render as renderProveedor } from "./detailProveedor.js";
+import { render as renderProveedor } from "./detailProveedor2.js";
 
 const categorias = [
   "Carpintería",
