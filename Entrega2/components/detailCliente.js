@@ -50,7 +50,7 @@ const renderServicios = (serviciosCliente) => {
   cardDeck.classList.add("card-deck");
   serviciosCliente.forEach((item) => {
     let serv = serviciosData.find((element) => element.id === item.fk_servicio);
-    console.log(serv);
+
     let card = document.createElement("div");
     card.classList.add("card");
     card.classList.add("carta");
