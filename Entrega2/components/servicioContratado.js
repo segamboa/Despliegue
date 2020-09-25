@@ -1,4 +1,4 @@
-const html = "<h1>Sus contratos con clientes son estos</h1>";
+const html = "<h1 class ='texto'>Sus contratos con clientes son estos</h1>";
 import { data } from "../Datos/servicio_contratado.js";
 let servicioContratado = [];
 var table = document.createElement("table");

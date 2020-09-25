@@ -30,6 +30,7 @@ const renderServiciosProveedor = () => {
   table.classList.add("table-striped");
   // Top row:
   let thead = document.createElement("thead");
+  thead.classList.add("table-header");
   let tr = document.createElement("tr");
   tr.insertCell(0).innerHTML = "Contrato";
   tr.insertCell(1).innerHTML = "Nombre cliente";
