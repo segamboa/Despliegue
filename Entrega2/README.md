@@ -8,8 +8,7 @@ Se cuenta con unas funcionalidades pequeñas como desplegar los servicios On-Dem
 
 
 ## URL de live demo:  
-https://dagalr.github.io/202020_S1_E6/Entrega2/index.html
-
+https://ddelcastillo.github.io/202020_S1_E6/Entrega2/index.html
 ## Instrucciones de uso:  
 Abrir la página con Live Server, Reload o verla desde GitHub Pages.  
 Navegar en la página principal del sitio y ver la información desplegada.  
