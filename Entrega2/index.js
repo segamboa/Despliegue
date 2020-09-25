@@ -1,10 +1,9 @@
 import { render as renderHome } from "./components/home.js";
 import { render as renderProveedores } from "./components/listaProveedores.js";
-import { render as renderCards } from "./components/cards.js";
 import { render as renderContratosClientes } from "./components/servicioContratado.js";
 import { render as renderCreateContract } from "./components/createContract.js";
 import { render as renderServicios } from "./components/listaServicios.js";
-import { render as renderContratosProveedor } from "./components/detailProveedor.js";
+import { render as renderContratosProveedor } from "./components/contratosProveedor.js";
 
 const body = document.getElementById("body");
 
@@ -13,21 +12,6 @@ renderHome(body);
 
 document.getElementById("home").addEventListener("click", () => {
   renderHome(body);
-});
-
-document.getElementById("servicios").addEventListener("click", () => {
-  renderServicios(body);
-});
-
-document.getElementById("proveedores").addEventListener("click", () => {
-  renderProveedores(body);
-});
-
-document.getElementById("cards").addEventListener("click", () => {
-  renderCards(body);
-});
-document.getElementById("contratosClientes").addEventListener("click", () => {
-  renderContratosClientes(body);
 });
 
 document.getElementById("");
@@ -52,19 +36,30 @@ const appendNavbarElement = (text, action) => {
   navbarList.appendChild(item);
 };
 
+const renderNavbar = () => {
+  appendNavbarElement("Servicios", () => {
+    renderServicios(body);
+  });
+  appendNavbarElement("Proveedores", () => {
+    renderProveedores(body);
+  });
+};
+
 const renderClienteNavbar = () => {
   navbarList.innerHTML = "";
-  appendNavbarElement("Clientes component 1", () => {
-  });
+  renderNavbar();
 };
 
 const renderProveedoresNavbar = () => {
   navbarList.innerHTML = "";
+  renderNavbar();
+
+  appendNavbarElement("Contratos clientes", () => {
+    renderContratosClientes(body);
+  });
   appendNavbarElement("Crear contrato", () => renderCreateContract(body));
-  let id = Math.random(20) + 1;
-  appendNavbarElement("Proveedor componente 1", () =>
-    renderContratosProveedor(id)
-  );
+  let id = Math.floor(Math.random() * Math.floor(20));
+  appendNavbarElement("Mis contratos", () => renderContratosProveedor(id));
 };
 
 let clienteNavbar = true;

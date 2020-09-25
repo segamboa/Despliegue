@@ -397,7 +397,6 @@ let calcularServiciosMasPopulares = () => {
   });
 
   cantidades = cantidades.sort((a, b) => b.num - a.num);
-  console.log(cantidades);
   let i = 0;
   let htmlServicios = "";
   while (i < 3) {
@@ -428,6 +427,7 @@ let calcularServiciosMasPopulares = () => {
     htmlServicios = htmlServicios + cadena;
     i = i + 1;
   }
+
   html = html.replace("REEMPLAZAR", htmlServicios);
 };
 
