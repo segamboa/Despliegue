@@ -14,8 +14,8 @@ export const render = (id) => {
   );
   serviciosProveedor.forEach((servicio) => {
     servicios_contratados.forEach((servicio_contratado) => {
-      if (servicios_contratado.fk_servicio === servicio.id)
-        serviciosProveedorContratados.add(servicios_contratado);
+      if (servicio_contratado.fk_servicio === servicio.id)
+        serviciosProveedorContratados.push(servicio_contratado);
     });
   });
   // TODO
