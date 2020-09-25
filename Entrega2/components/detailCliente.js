@@ -49,7 +49,7 @@ const renderServicios = (serviciosCliente) => {
   cardDeck.classList.add("card-deck");
   serviciosCliente.forEach((item) => {
     let serv = serviciosData.find((element) => element.id === item.fk_servicio);
-    console.log(serv);
+
     let card = document.createElement("div");
     card.classList.add("card");
     card.classList.add("carta");
@@ -71,13 +71,12 @@ const renderServicios = (serviciosCliente) => {
 
     let cardDescription = document.createElement("p");
     cardDescription.classList.add("card-text");
-    cardDescription.innerHTML = 
-    `
+    cardDescription.innerHTML = `
     <p>${serv.descripcion}</p>\
     <p>Fecha de contrato: ${item.fecha_contrato}</p>\
     <p>Precio pactado: ${item.precio_pactado}</p>
     `;
-    
+
     cardBody.appendChild(cardDescription);
 
     card.appendChild(cardBody);
