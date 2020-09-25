@@ -320,9 +320,8 @@
   background: #f9f9ff;
 }
 
-.col-md-4 img {
-  height: 100%;
-  width: auto;
+.col-md-4 {
+  background-image: url(./images/fondoPuntos.jpg);
 }
 
 .card-body:hover h5 {

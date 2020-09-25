@@ -236,7 +236,7 @@ let html = `<header class="banner">
     <div class="projects_item wd_18">
       <img src="images/D1.jpg" alt="TIENDAD1" />
       <div class="container hover">
-        <h4>
+        <h4 class="font-weight-bold">
           Servicios de Limpieza de Tiendas D1
         </h4>
         <p class="menos fontNunito">
@@ -456,11 +456,6 @@ let calcularServiciosMasPopulares = () => {
     <div class="card mb-3" style="max-width: 540px">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img
-            src="images/fondoPuntos.jpg"
-            class="card-img img-fluid"
-            alt="..."
-          />
         </div>
         <div class="col-md-8">
           <div class="card-body">
