@@ -1,7 +1,7 @@
 import { servicios as serviciosData } from "../Datos/servicio.js";
 import { data as proveedoresData } from "../Datos/listaProveedores.js";
 
-import { render as renderProveedor } from "./detailProveedor.js";
+import { render as renderProveedor } from "./detailProveedor2.js";
 
 const categorias = [
   "Carpintería",
@@ -52,12 +52,16 @@ const renderServicios = (servicios) => {
     cardBody.appendChild(price);
 
     let linkProveedor = document.createElement("a");
+    linkProveedor.id = proveedor.id;
     linkProveedor.href = "#";
     linkProveedor.classList.add("card-link");
     linkProveedor.innerHTML = "Contacto proveedor";
+    linkProveedor.id = proveedor.id;
+
     linkProveedor.addEventListener("click", () => {
       renderProveedor(proveedor.id);
     });
+
     cardBody.appendChild(linkProveedor);
 
     card.appendChild(cardBody);
@@ -131,28 +135,35 @@ const renderAcordeon = () => {
   serviciosData.filter((categoria) => categoria === "carpinteria");
 
   for (let cat of categorias) {
-    body.innerHTML += `<div>
+    let data = serviciosData.filter((categoria) => categoria.categoria === cat);
+
+    let buttons = document.createElement("div");
+    buttons.innerHTML = `<div>
     <div class="card-header" id="heading${contador}">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed extend servicioBoton" type="button" data-toggle="collapse" data-target="#collapse${contador}" aria-expanded="true" aria-controls="collapse${contador}">
           ${cat}
         </button>
       </h2>
-    </div>
-    <div id="collapse${contador}" class="collapse" aria-labelledby="heading${contador}" data-parent="#accordionExample">
-    <div class="card-deck">
-      ${cate(cat).innerHTML}
-    </div>
-  </div>`;
+    </div>`;
+
+    body.appendChild(buttons);
+
+    let collapsible = document.createElement("div");
+    collapsible.id = `collapse${contador}`;
+    collapsible.classList.add("collapse");
+    collapsible["aria-labelledby"] = `heading${contador}`;
+    collapsible["data-parent"] = "#accordionExample";
+
+    collapsible.appendChild(cate(cat));
+
+    body.appendChild(collapsible);
+
     contador++;
   }
-  body.innerHTML += `</div>`;
 };
 
 export const render = (body) => {
   body.innerHTML = "";
-  let acordeon = renderAcordeon();
-  //body.appendChild(acordeon);
-  //let cardDeck = renderServicios(serviciosData);
-  //body.appendChild(cardDeck);
+  renderAcordeon();
 };
