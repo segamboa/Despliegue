@@ -135,8 +135,6 @@ const renderAcordeon = () => {
   serviciosData.filter((categoria) => categoria === "carpinteria");
 
   for (let cat of categorias) {
-    let data = serviciosData.filter((categoria) => categoria.categoria === cat);
-
     let buttons = document.createElement("div");
     buttons.innerHTML = `<div>
     <div class="card-header" id="heading${contador}">
