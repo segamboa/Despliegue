@@ -2,7 +2,9 @@ import { render as renderHome } from "./components/home.js";
 import { render as renderProveedores } from "./components/listaProveedores.js";
 import { render as renderCards } from "./components/cards.js";
 import { render as renderContratosClientes } from "./components/servicioContratado.js";
+import { render as renderCreateContract } from "./components/createContract.js";
 import { render as renderServicios } from "./components/listaServicios.js";
+import { render as renderContratosProveedor } from "./components/detailProveedor.js";
 
 const body = document.getElementById("body");
 
@@ -28,6 +30,7 @@ document.getElementById("contratosClientes").addEventListener("click", () => {
   renderContratosClientes(body);
 });
 
+document.getElementById("");
 // navbar modification
 
 const navbarList = document.getElementById("navbar-list");
@@ -52,14 +55,15 @@ const appendNavbarElement = (text, action) => {
 const renderClienteNavbar = () => {
   navbarList.innerHTML = "";
   appendNavbarElement("Clientes component 1", () => {
-    console.log("render component");
   });
 };
 
 const renderProveedoresNavbar = () => {
   navbarList.innerHTML = "";
-  appendNavbarElement("Proveedor component 1", () =>
-    console.log("proveedor component 1")
+  appendNavbarElement("Crear contrato", () => renderCreateContract(body));
+  let id = Math.random(20) + 1;
+  appendNavbarElement("Proveedor componente 1", () =>
+    renderContratosProveedor(id)
   );
 };
 
