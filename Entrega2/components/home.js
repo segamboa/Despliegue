@@ -47,7 +47,7 @@ let html = `<header class="banner">
             src="images/archInterior.jpg"
             alt="Service-1"
           />
-          <h4>Arquitectura y diseño de interiores</h4>
+          <h4 class="texto" >Arquitectura y diseño de interiores</h4>
           <p class="centrado">
             Solicita servicios de diseño de interiores y arquitectura para
             la remodelación de tus instalaciones. Desde el diseño hasta la
@@ -62,7 +62,7 @@ let html = `<header class="banner">
             src="images/carPlomeria.png"
             alt="Service-2"
           />
-          <h4 class="centrado">
+          <h4 class="centrado texto">
             Carpinteria, Plomeria y Servicios Varios
           </h4>
           <p class="centrado">
@@ -80,7 +80,7 @@ let html = `<header class="banner">
             src="images/limSeguridad.png"
             alt="Service-3"
           />
-          <h4 class="centrado">Seguridad y Aseo</h4>
+          <h4 class="centrado texto">Seguridad y Aseo</h4>
           <p class="centrado">
             Contrata personal altamente calificado para mantener la
             seguridad y el aseo de tus instalaciones.
@@ -295,7 +295,7 @@ let html = `<header class="banner">
       <h2 class="font-weight-bold text-black mb-5 centrado texto">
         Servicios Populares
       </h2>
-      <p>Los tres servicios más populares entre nuestros clientes son:</p>
+      <p class="texto">Los tres servicios más populares entre nuestros clientes son:</p>
     </div>
 
     <div id="filaServiciosPopulares" class="row">REEMPLAZAR</div>
@@ -415,16 +415,16 @@ let html = `<header class="banner">
 
 let serviciosPopulares = [];
 const categorias = [
-  "carpinteria",
-  "plomeria",
-  "disenio_interiores",
-  "jardineria",
-  "tapiceria",
-  "remodelacion",
-  "construccion",
-  "demolicion",
-  "limpieza",
-  "seguridad",
+  "Carpinteria",
+  "Plomeria",
+  "Disenio_interiores",
+  "Jardineria",
+  "Tapiceria",
+  "Remodelacion",
+  "Construccion",
+  "Demolicion",
+  "Limpieza",
+  "Seguridad",
 ];
 
 let calcularServiciosMasPopulares = () => {
@@ -436,7 +436,7 @@ let calcularServiciosMasPopulares = () => {
 
     servicios.forEach((element) => {
       descripcion = element.descripcion;
-      if (element.categoria == el) {
+      if (element.categoria == el.toLowerCase()) {
         ids.push(element.id);
       }
     });
@@ -465,8 +465,8 @@ let calcularServiciosMasPopulares = () => {
           />
         </div>
         <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">` +
+          <div class="card-body carta">
+            <h5 class="card-title tituloCarta">` +
       cantidades[i].tipo +
       `</h5>
             <p class="card-text">` +

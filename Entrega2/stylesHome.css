@@ -312,3 +312,12 @@ body{
 .eliminar{
   border: none !important;
 }
+.servicioBoton{
+  height:70px;
+}
+.btn:hover{
+  color:#ff5733;
+}
+.btn-link{
+  color: #ff5733;
+}
