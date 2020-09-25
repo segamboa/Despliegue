@@ -1,10 +1,10 @@
 import { data as servicios_contratados } from "../Datos/servicio_contratado.js";
 import { servicios } from "../Datos/servicio.js";
 
-let serviciosProveedor = [];
-let serviciosProveedorContratados = [];
-
 export const render = (id) => {
+  let serviciosProveedor = [];
+  let serviciosProveedorContratados = [];
+
   serviciosProveedor = servicios.filter(
     (element) => element.fk_proveedor === id
   );
@@ -17,10 +17,15 @@ export const render = (id) => {
   // TODO
   let body = document.getElementById("body");
   body.innerHTML = "";
-  body.appendChild(renderServiciosProveedor());
+  body.appendChild(
+    renderServiciosProveedor(serviciosProveedor, serviciosProveedorContratados)
+  );
 };
 
-const renderServiciosProveedor = () => {
+const renderServiciosProveedor = (
+  servicesProveedor,
+  servicesProveedorHired
+) => {
   let table = document.createElement("table");
   table.classList.add("table");
   table.classList.add("table-striped");
@@ -34,10 +39,10 @@ const renderServiciosProveedor = () => {
   tr.insertCell(3).innerHTML = "Precio pactado";
   thead.appendChild(tr);
   let tbody = document.createElement("tbody");
-  serviciosProveedorContratados.forEach((sc, index) => {
+  servicesProveedorHired.forEach((sc, index) => {
     let r = document.createElement("tr");
     r.insertCell(0).innerHTML = index + 1;
-    let s = serviciosProveedor.find((element) => element.id === sc.fk_servicio);
+    let s = servicesProveedor.find((element) => element.id === sc.fk_servicio);
 
     r.insertCell(1).innerHTML = s ? s.nombre : "Cliente 1";
     r.insertCell(2).innerHTML = sc.fecha_contrato;
