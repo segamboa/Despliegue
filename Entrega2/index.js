@@ -4,6 +4,7 @@ import { render as renderCards } from "./components/cards.js";
 import { render as renderContratosClientes } from "./components/servicioContratado.js";
 import { render as renderCreateContract } from "./components/createContract.js";
 import { render as renderServicios } from "./components/listaServicios.js";
+import { render as renderContratosProveedor } from "./components/detailProveedor.js";
 
 const body = document.getElementById("body");
 
@@ -53,7 +54,7 @@ const appendNavbarElement = (text, action) => {
 
 const renderClienteNavbar = () => {
   navbarList.innerHTML = "";
-  appendNavbarElement("Clientes component 1", () => {
+  appendNavbarElement("Clientes componente 1", () => {
     renderCreateContract(body);
   });
 };
@@ -61,6 +62,10 @@ const renderClienteNavbar = () => {
 const renderProveedoresNavbar = () => {
   navbarList.innerHTML = "";
   appendNavbarElement("Crear contrato", () => renderCreateContract(body));
+  let id = Math.random(20) + 1;
+  appendNavbarElement("Proveedor componente 1", () =>
+    renderContratosProveedor(id)
+  );
 };
 
 let clienteNavbar = true;
