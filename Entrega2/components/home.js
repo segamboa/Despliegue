@@ -96,7 +96,7 @@ let html = `<header class="banner">
         <img src="images/aboutus.jpg" alt="Image" class="img-fluid altura1" />
       </div>
       <div class="col-lg-5 ml-auto">
-        <span class="sub-title">¿Por qué TITULO?</span>
+        <span class="sub-title">¿Por qué UService?</span>
         <h2 class="font-weight-bold text-black mb-5 texto">Sobre Nosotros</h2>
         <div class="card-body">
           <p class="texto">
@@ -303,9 +303,9 @@ let html = `<header class="banner">
 <section class="contact">
   <div class="container">
     <div class="titulo centrado2">
-      <span class="sub-title centrado">¿Cómo trabajamos?</span>
+      <span class="sub-title centrado">¿Qué quieres decirnos?</span>
       <h2 class="font-weight-bold text-black mb-5 centrado texto">
-        Proyectos Realizados
+        ¡Contáctanos!
       </h2>
 
       <form action="#" class="p-5 bg-white fondo">
@@ -360,58 +360,8 @@ let html = `<header class="banner">
   </div>
 </section>
 </main>
-
-<footer class="footer_area p_120">
-<div class="container">
-  <div class="row footer_inner">
-    <div class="col-lg-5 col-sm-6">
-      <aside class="f_widget ab_widget">
-        <div class="f_title">
-          <h3>About Me</h3>
-        </div>
-        <p>
-          Do you want to be even more successful? Learn to love learning
-          and growth. The more effort you put into improving your skills,
-        </p>
-        <p>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          Copyright &copy; All rights reserved | This template is made
-          with
-          <i class="fa fa-heart-o" aria-hidden="true"></i> by
-          <a href="https://colorlib.com" target="_blank">Colorlib</a>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        </p>
-      </aside>
-    </div>
-    <div class="col-lg-5 col-sm-6"></div>
-    <div class="col-lg-2">
-      <aside class="f_widget social_widget">
-        <div class="f_title">
-          <h3>Follow Me</h3>
-        </div>
-        <p>Let us be social</p>
-        <ul class="list">
-          <li>
-            <a href="#"><i class="fa fa-facebook"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-dribbble"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-behance"></i></a>
-          </li>
-        </ul>
-      </aside>
-    </div>
-  </div>
-</div>
-</footer>
 `;
 
-let serviciosPopulares = [];
 const categorias = [
   "Carpinteria",
   "Plomeria",
@@ -478,7 +428,6 @@ let calcularServiciosMasPopulares = () => {
     htmlServicios = htmlServicios + cadena;
     i = i + 1;
   }
-  console.log(htmlServicios);
   html = html.replace("REEMPLAZAR", htmlServicios);
 };
 
