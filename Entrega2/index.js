@@ -2,7 +2,9 @@ import { render as renderHome } from "./components/home.js";
 import { render as renderProveedores } from "./components/listaProveedores.js";
 import { render as renderCards } from "./components/cards.js";
 import { render as renderContratosClientes } from "./components/servicioContratado.js";
-import {render as renderCreateContract} from "./components/createContract.js";
+import { render as renderCreateContract } from "./components/createContract.js";
+import { render as renderServicios } from "./components/listaServicios.js";
+
 const body = document.getElementById("body");
 
 // initial paint
@@ -10,6 +12,10 @@ renderHome(body);
 
 document.getElementById("home").addEventListener("click", () => {
   renderHome(body);
+});
+
+document.getElementById("servicios").addEventListener("click", () => {
+  renderServicios(body);
 });
 
 document.getElementById("proveedores").addEventListener("click", () => {
@@ -23,7 +29,7 @@ document.getElementById("contratosClientes").addEventListener("click", () => {
   renderContratosClientes(body);
 });
 
-document.getElementById("")
+document.getElementById("");
 // navbar modification
 
 const navbarList = document.getElementById("navbar-list");
@@ -54,9 +60,7 @@ const renderClienteNavbar = () => {
 
 const renderProveedoresNavbar = () => {
   navbarList.innerHTML = "";
-  appendNavbarElement("Crear contrato", () =>
-    renderCreateContract(body)
-  );
+  appendNavbarElement("Crear contrato", () => renderCreateContract(body));
 };
 
 let clienteNavbar = true;
