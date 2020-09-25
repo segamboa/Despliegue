@@ -48,6 +48,7 @@ const renderCliente = (cliente) => {
 const renderServicios = (serviciosCliente) => {
   let cardDeck = document.createElement("div");
   cardDeck.classList.add("card-deck");
+  cardDeck.classList.add("justify-content-center");
   serviciosCliente.forEach((item) => {
     let serv = serviciosData.find((element) => element.id === item.fk_servicio);
 
@@ -79,7 +80,7 @@ const renderServicios = (serviciosCliente) => {
     `;
     let bottomCard = document.createElement("div");
     bottomCard.classList.add("mt-auto");
-    let bottomDescr = document.createElement("P");
+    let bottomDescr = document.createElement("p");
     bottomDescr.innerHTML = `
     <p><strong>Fecha de contrato</strong>: ${item.fecha_contrato}</p>\
     <p><strong>Precio pactado</strong>: ${item.precio_pactado}</p>

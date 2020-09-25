@@ -19,6 +19,7 @@ const categorias = [
 const renderServicios = (servicios) => {
   let cardDeck = document.createElement("div");
   cardDeck.classList.add("card-deck");
+  cardDeck.classList.add("justify-content-center");
 
   servicios.forEach((item) => {
     let proveedor = proveedoresData.find((ite) => ite.id == item.fk_proveedor);
@@ -29,6 +30,8 @@ const renderServicios = (servicios) => {
     let cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
     cardBody.classList.add("carta");
+    cardBody.classList.add("d-flex");
+    cardBody.classList.add("flex-column");
 
     let cardTitle = document.createElement("h5");
     cardTitle.classList.add("card-title");
@@ -46,10 +49,13 @@ const renderServicios = (servicios) => {
     cardDescription.innerHTML = item.descripcion;
     cardBody.appendChild(cardDescription);
 
+    let bottomCard = document.createElement("div");
+    bottomCard.classList.add("mt-auto");
+
     let price = document.createElement("p");
     price.classList.add("card-text");
-    price.innerHTML = item.precio_minimo;
-    cardBody.appendChild(price);
+    price.innerHTML = `<strong>${item.precio_minimo}</strong>`;
+    bottomCard.appendChild(price);
 
     let linkProveedor = document.createElement("a");
     linkProveedor.id = proveedor.id;
@@ -62,7 +68,8 @@ const renderServicios = (servicios) => {
       renderProveedor(proveedor.id);
     });
 
-    cardBody.appendChild(linkProveedor);
+    bottomCard.appendChild(linkProveedor);
+    cardBody.appendChild(bottomCard);
 
     card.appendChild(cardBody);
 
