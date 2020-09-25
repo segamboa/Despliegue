@@ -3,7 +3,7 @@ import { render as renderProveedores } from "./components/listaProveedores.js";
 import { render as renderContratosClientes } from "./components/servicioContratado.js";
 import { render as renderCreateContract } from "./components/createContract.js";
 import { render as renderServicios } from "./components/listaServicios.js";
-import { render as renderContratosProveedor } from "./components/detailProveedor.js";
+import { render as renderContratosProveedor } from "./components/contratosProveedor.js";
 
 const body = document.getElementById("body");
 
