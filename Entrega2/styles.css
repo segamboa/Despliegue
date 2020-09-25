@@ -71,18 +71,27 @@
 }
 
 .card {
+  background-color: rgb(39, 42, 46);
   min-width: 18rem;
   max-width: 18rem;
   margin: 5px;
+  margin-bottom: 1.5rem !important;
 }
 .btn {
   background-color: rgb(39, 42, 46);
   color: #ff5733;
 }
-.carta ,td{
+.carta,
+td {
   background-color: rgb(39, 42, 46);
   color: white;
+  margin-bottom: 1.5rem !important;
 }
-.tituloCarta, th{
+.tituloCarta,
+th {
   color: #ff5733;
+}
+
+.table-header {
+  font-weight: bold;
 }
