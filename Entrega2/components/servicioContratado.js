@@ -1,4 +1,4 @@
-const html = "<h1>Contratos clientes</h1>";
+const html = "<h1>Sus contratos con clientes son estos</h1>";
 import { data } from "../Datos/servicio_contratado.js";
 let servicioContratado = [];
 var table = document.createElement("table");
@@ -27,7 +27,7 @@ class ServicioContratado {
     this.fecha_contrato = fecha_contrato;
   }
 }
-let crearTabla = () => {
+const crearTabla = () => {
   table.classList.add("table");
   var tr = table.insertRow(-1);
   var thid = document.createElement("th");
