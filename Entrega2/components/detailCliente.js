@@ -52,7 +52,7 @@ const renderServicios = (serviciosCliente) => {
     console.log(serv);
     let card = document.createElement("div");
     card.classList.add("card");
-
+    card.classList.add("carta");
     let img = document.createElement("img");
     img.classList.add("card-img-top");
     img.src =
@@ -65,6 +65,7 @@ const renderServicios = (serviciosCliente) => {
 
     let cardTitle = document.createElement("h5");
     cardTitle.classList.add("card-title");
+    cardTitle.classList.add("tituloCarta");
     cardTitle.innerHTML = serv.nombre;
     cardBody.appendChild(cardTitle);
 

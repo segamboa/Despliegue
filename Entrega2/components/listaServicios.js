@@ -28,9 +28,11 @@ const renderServicios = (servicios) => {
 
     let cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
+    cardBody.classList.add("carta");
 
     let cardTitle = document.createElement("h5");
     cardTitle.classList.add("card-title");
+    cardTitle.classList.add("tituloCarta");
     cardTitle.innerHTML = item.nombre;
     cardBody.appendChild(cardTitle);
 
@@ -139,7 +141,7 @@ const renderAcordeon = () => {
     buttons.innerHTML = `<div>
     <div class="card-header" id="heading${contador}">
       <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse${contador}" aria-expanded="true" aria-controls="collapse${contador}">
+        <button class="btn btn-link collapsed extend servicioBoton" type="button" data-toggle="collapse" data-target="#collapse${contador}" aria-expanded="true" aria-controls="collapse${contador}">
           ${cat}
         </button>
       </h2>
