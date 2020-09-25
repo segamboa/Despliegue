@@ -1,6 +1,8 @@
 import { servicios as serviciosData } from "../Datos/servicio.js";
 import { data as proveedoresData } from "../Datos/listaProveedores.js";
 
+import { render as renderProveedor } from "./detailProveedor.js";
+
 const renderServicios = (servicios) => {
   let cardDeck = document.createElement("div");
   cardDeck.classList.add("card-deck");
@@ -35,11 +37,11 @@ const renderServicios = (servicios) => {
     cardBody.appendChild(price);
 
     let linkProveedor = document.createElement("a");
-    linkProveedor.href = "";
+    linkProveedor.href = "#";
     linkProveedor.classList.add("card-link");
     linkProveedor.innerHTML = "Contacto proveedor";
     linkProveedor.addEventListener("click", () => {
-      console.log("llevame al detalle del proveedor");
+      renderProveedor(proveedor.id);
     });
     cardBody.appendChild(linkProveedor);
 
