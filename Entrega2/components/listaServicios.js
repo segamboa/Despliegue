@@ -145,8 +145,7 @@ const renderAcordeon = () => {
           ${cat}
         </button>
       </h2>
-    </div>
-    <div id="collapse${contador}" class="collapse" aria-labelledby="heading${contador}" data-parent="#accordionExample">`;
+    </div>`;
 
     body.appendChild(buttons);
 
