@@ -8,18 +8,16 @@ let html = `<header class="banner">
         <div class="container banner_content">
           <div class="row justify-content-center">
             <h2 class="font-weight-bold mb-5">
-              Precise concept design <br />for stylish living
+              UService
             </h2>
           </div>
           <div class="row justify-content-center">
             <p class="centrado fontNunito">
-              If you are looking at blank cassettes on the web, you may be
-              very confused at the difference in price. You may see some
-              for as low as $.17 each.
+              Ofrecemos los mejores servicios para tu organización. Contacta a los mejores profesionales y contrata sus servicios.
             </p>
           </div>
           <div class="row justify-content-center">
-            <a class="banner_btn" href="#">Get Started</a>
+            <a class="banner_btn" href="#">Comienza</a>
           </div>
         </div>
       </div>
