@@ -29,11 +29,11 @@ let html = `<header class="banner">
 </header>
 
 <main>
-<section class="services">
+<section class="services fondo">
   <div class="container">
     <div class="titulo">
       <span class="sub-title">¿Qué ofrecemos?</span>
-      <h2 class="font-weight-bold text-black mb-5">Nuestros Servicios</h2>
+      <h2 class="font-weight-bold text-black mb-5 texto">Nuestros Servicios</h2>
       <p>
         Contrata los mejores servicios para tu compañia desde la comodidad
         de tu casa
@@ -99,9 +99,9 @@ let html = `<header class="banner">
       </div>
       <div class="col-lg-5 ml-auto">
         <span class="sub-title">¿Por qué TITULO?</span>
-        <h2 class="font-weight-bold text-black mb-5">Sobre Nosotros</h2>
+        <h2 class="font-weight-bold text-black mb-5 texto">Sobre Nosotros</h2>
         <div class="card-body">
-          <p>
+          <p class="texto">
             Te facilitamos el proceso de contacto y contración de
             servicios varios para tu compañia en 4 sencillos pasos.
             ¡Conocelos!
@@ -109,9 +109,9 @@ let html = `<header class="banner">
         </div>
 
         <div class="accordion" id="accordionExample">
-          <h2 class="mb-0 border rounded mb-2">
+          <h2 class="mb-0 border rounded mb-2 eliminar">
             <button
-              class="btn collapsed"
+              class="btn collapsed extend"
               type="button"
               data-toggle="collapse"
               data-target="#collapseOne"
@@ -129,7 +129,7 @@ let html = `<header class="banner">
             data-parent="#accordionExample"
           >
             <div class="card-body">
-              <p class="textBody">
+              <p class="textBody texto">
                 Los profesionales de nuestro catalogo son profesionales de
                 alta calidad que estarán dispuestos a ayudarte a
                 desarrollar las actividades de tu compañia.
@@ -137,9 +137,9 @@ let html = `<header class="banner">
             </div>
           </div>
 
-          <h2 class="mb-0 border rounded mb-2">
+          <h2 class="mb-0 border rounded mb-2 eliminar">
             <button
-              class="btn collapsed"
+              class="btn collapsed extend"
               type="button"
               data-toggle="collapse"
               data-target="#collapseTwo"
@@ -157,7 +157,7 @@ let html = `<header class="banner">
             data-parent="#accordionExample"
           >
             <div class="card-body">
-              <p class="textBody">
+              <p class="textBody texto">
                 Nosotros te ayudamos a buscar y filtrar los profesionales
                 y servicios mejor adecuados para tus necesidades. Ademas,
                 puedes contactarlos y contratarlos a través de nuestra
@@ -166,9 +166,9 @@ let html = `<header class="banner">
             </div>
           </div>
 
-          <h2 class="mb-0 border rounded mb-2">
+          <h2 class="mb-0 border rounded mb-2 eliminar">
             <button
-              class="btn collapsed"
+              class="btn collapsed extend"
               type="button"
               data-toggle="collapse"
               data-target="#collapseThree"
@@ -186,7 +186,7 @@ let html = `<header class="banner">
             data-parent="#accordionExample"
           >
             <div class="card-body">
-              <p class="textBody">
+              <p class=" texto">
                 Te mostramos el estado de tu proyecto y puedes utilizar
                 nuestra plataforma como canal de comunicación y registro
                 de actividades de tus servicios.
@@ -194,9 +194,9 @@ let html = `<header class="banner">
             </div>
           </div>
 
-          <h2 class="mb-0 border rounded mb-2">
+          <h2 class="mb-0 border rounded mb-2 eliminar">
             <button
-              class="btn collapsed"
+              class="btn collapsed extend"
               type="button"
               data-toggle="collapse"
               data-target="#collapseFour"
@@ -214,7 +214,7 @@ let html = `<header class="banner">
             data-parent="#accordionExample"
           >
             <div class="card-body">
-              <p class="textBody">
+              <p class="textBody texto">
                 Observa los resultados al terminar el proceso, realiza
                 modificaciones y continua con nosotros para futuros
                 proyectos.
@@ -230,7 +230,7 @@ let html = `<header class="banner">
 <section class="projects_area">
   <div class="titulo centrado2">
     <span class="sub-title centrado">¿Cómo trabajamos?</span>
-    <h2 class="font-weight-bold text-black mb-5 centrado">
+    <h2 class="font-weight-bold text-black mb-5 centrado texto">
       Proyectos Realizados
     </h2>
   </div>
@@ -286,13 +286,13 @@ let html = `<header class="banner">
   </div>
 </section>
 
-<section class="serviciosPopulares">
+<section class="serviciosPopulares fondo">
   <div class="container">
     <div class="titulo centrado2">
       <span class="sub-title centrado"
         >¿Qué prefieren nuestros clientes?</span
       >
-      <h2 class="font-weight-bold text-black mb-5 centrado">
+      <h2 class="font-weight-bold text-black mb-5 centrado texto">
         Servicios Populares
       </h2>
       <p>Los tres servicios más populares entre nuestros clientes son:</p>
@@ -306,11 +306,11 @@ let html = `<header class="banner">
   <div class="container">
     <div class="titulo centrado2">
       <span class="sub-title centrado">¿Cómo trabajamos?</span>
-      <h2 class="font-weight-bold text-black mb-5 centrado">
+      <h2 class="font-weight-bold text-black mb-5 centrado texto">
         Proyectos Realizados
       </h2>
 
-      <form action="#" class="p-5 bg-white">
+      <form action="#" class="p-5 bg-white fondo">
         <div class="row form-group">
           <div class="col-md-12 mb-3 mb-md-0">
             <label class="font-weight-bold" for="fullname"

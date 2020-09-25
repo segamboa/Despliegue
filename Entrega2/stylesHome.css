@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Heebo:300,400,500,700|Roboto:300,400,500,700");
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900");
 
+body{
+  background-color:    #212529;;
+}
 .altura1 {
   width: 110%;
   height: 80%;
@@ -70,13 +73,13 @@
 
 .banner_btn {
   display: inline-block;
-  background: #ff5733;
+  background: #EE7125;
   color: #fff;
   font-family: "Roboto", sans-serif;
   width: 148px;
   font-size: 14px;
   font-weight: 500;
-  border: 1px solid #ff5733;
+  border: 1px solid #EE7125;
   line-height: 48px;
   border-radius: 3px;
   outline: none !important;
@@ -87,7 +90,7 @@
 }
 .banner_btn:hover {
   background: transparent;
-  color: #ff5733;
+  color: #EE7125;
 }
 
 .titulo {
@@ -295,4 +298,17 @@
 }
 .footer_area .footer_inner {
   margin-bottom: -30px;
+}
+.navbar, .fondo{
+  color: white;
+  background-color: #2B2B2B !important;
+}
+.texto{
+  color: white !important;
+}
+.extend{
+  width: 100%;
+}
+.eliminar{
+  border: none !important;
 }

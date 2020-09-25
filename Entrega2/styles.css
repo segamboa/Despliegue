@@ -14,7 +14,7 @@
   display: block;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid #999999;
+  border: 2px solid white;
   border-radius: 20px;
 }
 .onoffswitch-inner {
@@ -32,7 +32,7 @@
   padding: 0;
   line-height: 30px;
   font-size: 14px;
-  color: white;
+  color: #2B2B2B;
   font-family: Trebuchet, Arial, sans-serif;
   font-weight: bold;
   box-sizing: border-box;
@@ -40,26 +40,26 @@
 .onoffswitch-inner:before {
   content: "Clientes";
   padding-left: 10px;
-  background-color: #34a7c1;
-  color: #ffffff;
+  background-color: #2B2B2B;
+  color:#ff5733;
 }
 .onoffswitch-inner:after {
   content: "Proveedores";
   padding-right: 10px;
-  background-color: #eeeeee;
-  color: #999999;
+  background-color: #2B2B2B;
+  color: #ff5733;
   text-align: right;
 }
 .onoffswitch-switch {
   display: block;
   width: 18px;
   margin: 6px;
-  background: #ffffff;
+  background: #2B2B2B;
   position: absolute;
   top: 0;
   bottom: 0;
   right: 100px;
-  border: 2px solid #999999;
+  border: 2px solid white;
   border-radius: 20px;
   transition: all 0.3s ease-in 0s;
 }
@@ -71,7 +71,11 @@
 }
 
 .card {
-  min-width: 13rem;
-  max-width: 13rem;
+  min-width: 18rem;
+  max-width: 18rem;
   margin: 5px;
+}
+.btn{
+  background-color:#ff5733;
+  color: white;
 }
