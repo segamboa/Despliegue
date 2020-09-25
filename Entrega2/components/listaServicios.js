@@ -59,7 +59,7 @@ const renderServicios = (servicios) => {
     linkProveedor.id = proveedor.id;
 
     linkProveedor.addEventListener("click", () => {
-      renderProveedor(item.id);
+      renderProveedor(proveedor.id);
     });
 
     cardBody.appendChild(linkProveedor);
