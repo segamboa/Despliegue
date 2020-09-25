@@ -3,12 +3,11 @@ import { clientes } from "../Datos/clientes.js";
 import { data as servicios_contratados } from "../Datos/servicio_contratado.js";
 import { servicios } from "../Datos/servicio.js";
 
-let prov = [];
 let serviciosProveedor = [];
 let serviciosProveedorContratados = [];
 
 export const render = (id) => {
-  prov = proveedores.find((element) => element.id === id);
+  proveedores.find((element) => element.id === id);
   serviciosProveedor = servicios.filter(
     (element) => element.fk_proveedor === id
   );
@@ -42,7 +41,8 @@ const renderServiciosProveedor = () => {
     let r = document.createElement("tr");
     r.insertCell(0).innerHTML = index + 1;
     let s = serviciosProveedor.find((element) => element.id === sc.fk_servicio);
-    r.insertCell(1).innerHTML = s.nombre;
+
+    r.insertCell(1).innerHTML = s ? s.nombre : "Cliente 1";
     r.insertCell(2).innerHTML = sc.fecha_contrato;
     r.insertCell(3).innerHTML = sc.precio_pactado;
     tbody.appendChild(r);

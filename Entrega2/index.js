@@ -58,10 +58,8 @@ const renderProveedoresNavbar = () => {
     renderContratosClientes(body);
   });
   appendNavbarElement("Crear contrato", () => renderCreateContract(body));
-  let id = Math.random(20) + 1;
-  appendNavbarElement("Proveedor componente 1", () =>
-    renderContratosProveedor(id)
-  );
+  let id = Math.floor(Math.random() * Math.floor(20));
+  appendNavbarElement("Mis contratos", () => renderContratosProveedor(id));
 };
 
 let clienteNavbar = true;
