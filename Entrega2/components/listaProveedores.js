@@ -1,4 +1,4 @@
-const html = "<h1>Proveedores</h1>";
+const html = "<h1 class ='texto'>Proveedores</h1>";
 
 import { data } from "../Datos/listaProveedores.js";
 let servicioContratado = [];
