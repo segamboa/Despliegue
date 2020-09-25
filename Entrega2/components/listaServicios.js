@@ -130,6 +130,7 @@ const cate = (cat) => {
 };
 
 const renderAcordeon = () => {
+  let body = document.getElementById("body");
   let contador = 0;
   body.innerHTML = `<div class="accordion" id="accordionExample">`;
   serviciosData.filter((categoria) => categoria === "carpinteria");
