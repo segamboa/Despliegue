@@ -8,18 +8,16 @@ let html = `<header class="banner">
         <div class="container banner_content">
           <div class="row justify-content-center">
             <h2 class="font-weight-bold mb-5">
-              Precise concept design <br />for stylish living
+              UService
             </h2>
           </div>
           <div class="row justify-content-center">
             <p class="centrado fontNunito">
-              If you are looking at blank cassettes on the web, you may be
-              very confused at the difference in price. You may see some
-              for as low as $.17 each.
+              Ofrecemos los mejores servicios para tu organización. Contacta a los mejores profesionales y contrata sus servicios.
             </p>
           </div>
           <div class="row justify-content-center">
-            <a class="banner_btn" href="#">Get Started</a>
+            <a class="banner_btn" href="#">Comienza</a>
           </div>
         </div>
       </div>
@@ -40,7 +38,7 @@ let html = `<header class="banner">
       </p>
     </div>
     <div class="services_inner row">
-      <div class="col-4">
+      <div class="col-12 col-md-6 col-lg-4">
         <div class="services_item">
           <img
             class="img-fluid"
@@ -55,7 +53,7 @@ let html = `<header class="banner">
           </p>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-12 col-md-6 col-lg-4">
         <div class="services_item">
           <img
             class="img-fluid"
@@ -73,7 +71,7 @@ let html = `<header class="banner">
           </p>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-12 col-md-6 col-lg-4">
         <div class="services_item">
           <img
             class="img-fluid"
@@ -95,7 +93,7 @@ let html = `<header class="banner">
   <div class="container">
     <div class="row">
       <div class="col-lg-6 mb-5 mb-lg-0">
-        <img src="images/aboutus.jpg" alt="Image" class="altura1" />
+        <img src="images/aboutus.jpg" alt="Image" class="img-fluid altura1" />
       </div>
       <div class="col-lg-5 ml-auto">
         <span class="sub-title">¿Por qué TITULO?</span>
@@ -237,11 +235,11 @@ let html = `<header class="banner">
   <div class="row m0">
     <div class="projects_item wd_18">
       <img src="images/D1.jpg" alt="TIENDAD1" />
-      <div class="hover">
+      <div class="container hover">
         <h4 class="font-weight-bold">
           Servicios de Limpieza de Tiendas D1
         </h4>
-        <p class="fontNunito">
+        <p class="menos fontNunito">
           Gracias a nuestros servicios, las tiendas D1 mantienen la
           limpieza de sus instalaciones al contratar profesionales de
           nuestro catalogo de proveedores.
@@ -454,15 +452,10 @@ let calcularServiciosMasPopulares = () => {
   let htmlServicios = "";
   while (i < 3) {
     let cadena =
-      `<div class="col-4">
+      `<div class="col-12 col-md-6 col-lg-4">
     <div class="card mb-3" style="max-width: 540px">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img
-            src="images/fondoPuntos.jpg"
-            class="card-img"
-            alt="..."
-          />
         </div>
         <div class="col-md-8">
           <div class="card-body carta">
