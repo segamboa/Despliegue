@@ -51,6 +51,46 @@
   max-width: 555px;
 }
 
+@media only screen and (max-width: 520px) {
+  .banner .banner_inner .banner_content h2 {
+    color: #fff;
+    font-size: 40px;
+    font-family: "Heebo", sans-serif;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .banner .banner_inner .banner_content p {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    margin-left: 24px;
+    font-size: 15px;
+    margin-bottom: 35px;
+    max-width: 555px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .banner .banner_inner .banner_content h2 {
+    color: #fff;
+    font-size: 30px;
+    font-family: "Heebo", sans-serif;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .banner .banner_inner .banner_content p {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    margin-left: 2px;
+    margin-bottom: 35px;
+    max-width: 555px;
+  }
+}
+
 .banner .banner_inner .banner_content .page_link a {
   font-size: 14px;
   color: #fff;
@@ -122,6 +162,7 @@
 }
 
 .services_item {
+  margin-top: 50px;
   margin-bottom: -30px;
 }
 
@@ -180,6 +221,7 @@
 }
 .projects_item img {
   width: 100%;
+  height: auto;
 }
 .projects_item .hover {
   position: absolute;
@@ -189,6 +231,57 @@
   width: 100%;
   padding: 36px;
   transition: all 400ms ease;
+}
+
+@media only screen and (max-width: 800px) {
+  .projects_item .hover {
+    position: absolute;
+    left: 0px;
+    bottom: 0%;
+    background: #ff5733;
+    width: 100%;
+    height: 50%;
+    padding: 0px;
+    transition: all 400ms ease;
+    visibility: hidden;
+  }
+  .projects_item .hover h4 {
+    color: #222222;
+    text-transform: uppercase;
+    visibility: hidden;
+  }
+  .projects_item .hover p {
+    color: #222222;
+    max-width: 570px;
+    font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 1256px) {
+  .projects_item .hover {
+    position: absolute;
+    left: 0px;
+    bottom: -200%;
+    background: #ff5733;
+    width: 100%;
+    padding: 36px;
+    transition: all 400ms ease;
+  }
+  .projects_item .hover h4 {
+    color: #222222;
+    text-transform: uppercase;
+    visibility: hidden;
+  }
+  .projects_item .hover p {
+    color: #222222;
+    max-width: 570px;
+    font-size: 85%;
+  }
+  .projects_item .hover .menos {
+    color: #222222;
+    max-width: 570px;
+    font-size: 70%;
+  }
 }
 .projects_item .hover h4 {
   color: #222222;
@@ -229,6 +322,7 @@
 
 .col-md-4 img {
   height: 100%;
+  width: auto;
 }
 
 .card-body:hover h5 {
@@ -295,4 +389,10 @@
 }
 .footer_area .footer_inner {
   margin-bottom: -30px;
+}
+
+.col-md-4 img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
 }

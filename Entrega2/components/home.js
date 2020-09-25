@@ -40,14 +40,14 @@ let html = `<header class="banner">
       </p>
     </div>
     <div class="services_inner row">
-      <div class="col-4">
+      <div class="col-12 col-md-6 col-lg-4">
         <div class="services_item">
           <img
             class="img-fluid"
             src="images/archInterior.jpg"
             alt="Service-1"
           />
-          <h4>Arquitectura y diseño de interiores</h4>
+          <h4 class="centrado">Arquitectura y diseño de interiores</h4>
           <p class="centrado">
             Solicita servicios de diseño de interiores y arquitectura para
             la remodelación de tus instalaciones. Desde el diseño hasta la
@@ -55,7 +55,7 @@ let html = `<header class="banner">
           </p>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-12 col-md-6 col-lg-4">
         <div class="services_item">
           <img
             class="img-fluid"
@@ -73,7 +73,7 @@ let html = `<header class="banner">
           </p>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-12 col-md-6 col-lg-4">
         <div class="services_item">
           <img
             class="img-fluid"
@@ -95,7 +95,7 @@ let html = `<header class="banner">
   <div class="container">
     <div class="row">
       <div class="col-lg-6 mb-5 mb-lg-0">
-        <img src="images/aboutus.jpg" alt="Image" class="altura1" />
+        <img src="images/aboutus.jpg" alt="Image" class="img-fluid altura1" />
       </div>
       <div class="col-lg-5 ml-auto">
         <span class="sub-title">¿Por qué TITULO?</span>
@@ -237,11 +237,11 @@ let html = `<header class="banner">
   <div class="row m0">
     <div class="projects_item wd_18">
       <img src="images/D1.jpg" alt="TIENDAD1" />
-      <div class="hover">
-        <h4 class="font-weight-bold">
+      <div class="container hover">
+        <h4>
           Servicios de Limpieza de Tiendas D1
         </h4>
-        <p class="fontNunito">
+        <p class="menos fontNunito">
           Gracias a nuestros servicios, las tiendas D1 mantienen la
           limpieza de sus instalaciones al contratar profesionales de
           nuestro catalogo de proveedores.
@@ -454,13 +454,13 @@ let calcularServiciosMasPopulares = () => {
   let htmlServicios = "";
   while (i < 3) {
     let cadena =
-      `<div class="col-4">
+      `<div class="col-12 col-md-6 col-lg-4">
     <div class="card mb-3" style="max-width: 540px">
       <div class="row no-gutters">
         <div class="col-md-4">
           <img
             src="images/fondoPuntos.jpg"
-            class="card-img"
+            class="card-img img-fluid"
             alt="..."
           />
         </div>
