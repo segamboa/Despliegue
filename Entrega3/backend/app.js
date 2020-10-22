@@ -10,6 +10,10 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+const empresasRouter = require('./routes/empresa.js');
+app.use('/api/empresas', empresasRouter);
+
 connectDb();
 
 module.exports = app;
