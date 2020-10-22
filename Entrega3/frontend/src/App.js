@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav'
 
 import Home from './components/home.js'
 import Component1 from './components/component1.js'
+import EmpresaDetail from './components/empresaDetail.js'
 
 import {
   BrowserRouter as Router,
@@ -29,6 +30,9 @@ function App () {
       <Switch>
         <Route path='/component1'>
           <Component1 />
+        </Route>
+        <Route path='/empresas/:id'>
+          <EmpresaDetail />
         </Route>
         <Route path='/'>
           <Home />
