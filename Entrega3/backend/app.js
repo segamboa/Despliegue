@@ -11,9 +11,12 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors())
+
+const proveedoresRouter = require('./routes/proveedor.js');
+app.use('/api/proveedores', proveedoresRouter);
 app.use(cors());
 
-const empresasRouter = require("./routes/empresa.js");
 const contratoProveedorRouter = require("./routes/contratoProveedor.js");
 const contratoClienteRouter = require("./routes/contratoCliente.js");
 
