@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav'
 import Home from './components/home.js'
 import Component1 from './components/component1.js'
 import EmpresaDetail from './components/empresaDetail.js'
-
+import ContratosCliente from './components/contratosCliente.js'
 import {
   BrowserRouter as Router,
   Switch,
@@ -33,6 +33,9 @@ function App () {
         </Route>
         <Route path='/empresas/:id'>
           <EmpresaDetail />
+        </Route>
+        <Route path='/clientes/contratos/:id'>
+          <ContratosCliente/>
         </Route>
         <Route path='/'>
           <Home />
