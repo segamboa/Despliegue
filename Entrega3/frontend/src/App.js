@@ -10,6 +10,7 @@ import EmpresaDetail from "./components/empresaDetail.js";
 import ContratosProveedor from "./components/contratosProveedor.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+
 function App() {
   return (
     <Router>
@@ -27,12 +28,14 @@ function App() {
         <Route path="/component1">
           <Component1 />
         </Route>
+
+        <Route path='/proveedores/:id'>
+          <ProveedorDetail />
+        </Route>
         <Route path="/empresas/contratos/:id">
           <ContratosProveedor />
         </Route>
-        <Route path="/empresas/:id">
-          <EmpresaDetail />
-        </Route>
+      
         <Route path="/">
           <Home />
         </Route>
