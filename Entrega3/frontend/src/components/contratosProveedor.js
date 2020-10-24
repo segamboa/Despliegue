@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 const axios = require("axios").default;
 
-function contratosProveedor(props) {
-    const[proveedor, setProveedor]
+function ContratosProveedor() {
+  const { id } = useParams();
+  const [proveedor, setProveedor] = useState([]);
 }
 
-export default contratosProveedor;
+export default ContratosProveedor;
