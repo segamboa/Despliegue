@@ -19,17 +19,16 @@ function ContratosProveedor() {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_API_URL + "/empresas/contratos/" + id)
+      .get(process.env.REACT_APP_API_URL + "/proveedores/contratos/" + id)
       .then((response) => {
-        console.log(response.data);
         setContratos(response.data);
       })
       .catch((err) => console.log(err));
   }, []);
   const rows = contratos.map((contrato, i) => {
     return (
-      <tr>
-        <RenderContratosProveedor contrato={contrato} nCliente={i++} />
+      <tr key={i}>
+        <RenderContratosProveedor contrato={contrato} nCliente={(i += 1)} />
       </tr>
     );
   });

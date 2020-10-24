@@ -6,10 +6,9 @@ import Nav from "react-bootstrap/Nav";
 
 import Home from "./components/home.js";
 import Component1 from "./components/component1.js";
-import EmpresaDetail from "./components/empresaDetail.js";
+import ProveedorDetail from "./components/proveedorDetail.js";
 import ContratosProveedor from "./components/contratosProveedor.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 
 function App() {
   return (
@@ -29,13 +28,14 @@ function App() {
           <Component1 />
         </Route>
 
-        <Route path='/proveedores/:id'>
-          <ProveedorDetail />
-        </Route>
-        <Route path="/empresas/contratos/:id">
+        <Route path="/proveedores/contratos/:id">
           <ContratosProveedor />
         </Route>
-      
+
+        <Route path="/proveedores/:id">
+          <ProveedorDetail />
+        </Route>
+
         <Route path="/">
           <Home />
         </Route>
