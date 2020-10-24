@@ -1,10 +1,9 @@
 const { MongoClient } = require('mongodb')
 
-const uri = 'mongodb://127.0.0.1:27017'
+const uri = process.env.MONGO_URL
 
 const client = new MongoClient(uri, { useUnifiedTopology: true })
-const dbName = 'heaphestus'
-
+const dbName = process.env.DB_NAME
 module.exports.connectDb = async () => {
   await client.connect()
   await client.db(dbName)
