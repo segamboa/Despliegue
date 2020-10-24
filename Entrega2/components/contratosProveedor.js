@@ -33,10 +33,10 @@ const renderServiciosProveedor = (
   let thead = document.createElement("thead");
   thead.classList.add("table-header");
   let tr = document.createElement("tr");
-  tr.insertCell(0).innerHTML = "Contrato";
-  tr.insertCell(1).innerHTML = "Nombre cliente";
-  tr.insertCell(2).innerHTML = "Fecha contrato";
-  tr.insertCell(3).innerHTML = "Precio pactado";
+  tr.insertCell(0).innerHTML = `<p class="table-header-row">Contrato</p>`;
+  tr.insertCell(1).innerHTML = `<p class="table-header-row">Nombre cliente</p>`;
+  tr.insertCell(2).innerHTML = `<p class="table-header-row">Fecha contrato</p>`;
+  tr.insertCell(3).innerHTML = `<p class="table-header-row">Precio pactado</p>`;
   thead.appendChild(tr);
   let tbody = document.createElement("tbody");
   servicesProveedorHired.forEach((sc, index) => {

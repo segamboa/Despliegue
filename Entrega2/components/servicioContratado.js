@@ -29,6 +29,8 @@ class ServicioContratado {
 }
 const crearTabla = () => {
   table.classList.add("table");
+  table.classList.add("table-striped");
+  table.classList.add("justify-content-center");
   var tr = table.insertRow(-1);
   var thid = document.createElement("th");
   thid.innerHTML = "Id";
@@ -43,8 +45,11 @@ const crearTabla = () => {
   thcalificacion.innerHTML = "Calificación";
   tr.appendChild(thcalificacion);
   var thfecha = document.createElement("th");
-  thfecha.innerHTML = "Servicio";
+  thfecha.innerHTML = "Fecha contrato";
   tr.appendChild(thfecha);
+  var thbutton = document.createElement("th");
+  thbutton.innerHTML = "";
+  tr.appendChild(thbutton);
   servicioContratado.forEach((element) => {
     tr = table.insertRow(-1);
     for (var propt in element) {

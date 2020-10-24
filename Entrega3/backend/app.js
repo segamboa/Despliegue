@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const cors = require('cors')
+const cors = require("cors");
 
 const app = express();
 const { connectDb } = require("./lib/mongodb");
@@ -15,7 +15,10 @@ app.use(cors())
 
 const proveedoresRouter = require('./routes/proveedor.js');
 app.use('/api/proveedores', proveedoresRouter);
+app.use(cors());
 
+const contratoProveedorRouter = require("./routes/contratoProveedor.js");
+app.use("/api/empresas/contratos", contratoProveedorRouter);
 connectDb();
 
 module.exports = app;

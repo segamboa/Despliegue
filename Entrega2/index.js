@@ -14,7 +14,6 @@ document.getElementById("home").addEventListener("click", () => {
   renderHome(body);
 });
 
-document.getElementById("");
 // navbar modification
 
 const navbarList = document.getElementById("navbar-list");
