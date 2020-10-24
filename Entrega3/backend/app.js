@@ -13,8 +13,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors())
 
-const empresasRouter = require('./routes/empresa.js');
-app.use('/api/empresas', empresasRouter);
+const proveedoresRouter = require('./routes/proveedor.js');
+app.use('/api/proveedores', proveedoresRouter);
 
 connectDb();
 
