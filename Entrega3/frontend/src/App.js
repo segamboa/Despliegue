@@ -10,6 +10,8 @@ import ProveedorDetail from "./components/proveedorDetail.js";
 import ContratosProveedor from "./components/contratosProveedor.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import ContratosCliente from './components/contratosCliente.js'
+
 function App() {
   return (
     <Router>
@@ -35,8 +37,10 @@ function App() {
         <Route path="/proveedores/:id">
           <ProveedorDetail />
         </Route>
-
-        <Route path="/">
+        <Route path='/clientes/contratos/:id'>
+          <ContratosCliente/>
+        </Route>
+        <Route path='/'>
           <Home />
         </Route>
       </Switch>
