@@ -33,7 +33,7 @@ let html = `<header class="banner">
       <span class="sub-title">¿Qué ofrecemos?</span>
       <h2 class="font-weight-bold text-black mb-5 texto">Nuestros Servicios</h2>
       <p>
-        Contrata los mejores servicios para tu compañia desde la comodidad
+        Contrata los mejores servicios para tu compañía desde la comodidad
         de tu casa
       </p>
     </div>
@@ -64,8 +64,8 @@ let html = `<header class="banner">
             Carpinteria, Plomeria y Servicios Varios
           </h4>
           <p class="centrado">
-            Tenemos un amplio catalogo de profesionales expertos en
-            carpinteria, plomeria, jardineria, tapiceria y demas servicios
+            Tenemos un amplio catálogo de profesionales expertos en
+            carpintería, plomería, jardinería, tapicería y demás servicios
             varios para apoyar tus procesos de construcción y
             remodelación.
           </p>
@@ -96,13 +96,13 @@ let html = `<header class="banner">
         <img src="images/aboutus.jpg" alt="Image" class="img-fluid altura1" />
       </div>
       <div class="col-lg-5 ml-auto">
-        <span class="sub-title">¿Por qué TITULO?</span>
+        <span class="sub-title">¿Por qué UService?</span>
         <h2 class="font-weight-bold text-black mb-5 texto">Sobre Nosotros</h2>
         <div class="card-body">
           <p class="texto">
-            Te facilitamos el proceso de contacto y contración de
-            servicios varios para tu compañia en 4 sencillos pasos.
-            ¡Conocelos!
+            Te facilitamos el proceso de contacto y contratación de
+            servicios varios para tu compañía en 4 sencillos pasos.
+            ¡Conócelos!
           </p>
         </div>
 
@@ -128,9 +128,9 @@ let html = `<header class="banner">
           >
             <div class="card-body">
               <p class="textBody texto">
-                Los profesionales de nuestro catalogo son profesionales de
+                Los profesionales de nuestro catálogo son profesionales de
                 alta calidad que estarán dispuestos a ayudarte a
-                desarrollar las actividades de tu compañia.
+                desarrollar las actividades de tu compañía.
               </p>
             </div>
           </div>
@@ -157,7 +157,7 @@ let html = `<header class="banner">
             <div class="card-body">
               <p class="textBody texto">
                 Nosotros te ayudamos a buscar y filtrar los profesionales
-                y servicios mejor adecuados para tus necesidades. Ademas,
+                y servicios mejor adecuados para tus necesidades. Además,
                 puedes contactarlos y contratarlos a través de nuestra
                 página web sin ningún costo adicional.
               </p>
@@ -214,7 +214,7 @@ let html = `<header class="banner">
             <div class="card-body">
               <p class="textBody texto">
                 Observa los resultados al terminar el proceso, realiza
-                modificaciones y continua con nosotros para futuros
+                modificaciones y continúa con nosotros para futuros
                 proyectos.
               </p>
             </div>
@@ -242,7 +242,7 @@ let html = `<header class="banner">
         <p class="menos fontNunito">
           Gracias a nuestros servicios, las tiendas D1 mantienen la
           limpieza de sus instalaciones al contratar profesionales de
-          nuestro catalogo de proveedores.
+          nuestro catálogo de proveedores.
         </p>
       </div>
     </div>
@@ -276,7 +276,7 @@ let html = `<header class="banner">
       <div class="hover">
         <h4 class="font-weight-bold">Servicios de Tapiceria</h4>
         <p>
-          Hemos realizado mas de 500 servicios de tapiceria para nuestros
+          Hemos realizado mas de 500 servicios de tapicería para nuestros
           clientes
         </p>
       </div>
@@ -303,9 +303,9 @@ let html = `<header class="banner">
 <section class="contact">
   <div class="container">
     <div class="titulo centrado2">
-      <span class="sub-title centrado">¿Cómo trabajamos?</span>
+      <span class="sub-title centrado">¿Qué quieres decirnos?</span>
       <h2 class="font-weight-bold text-black mb-5 centrado texto">
-        Proyectos Realizados
+        ¡Contáctanos!
       </h2>
 
       <form action="#" class="p-5 bg-white fondo">
@@ -360,58 +360,8 @@ let html = `<header class="banner">
   </div>
 </section>
 </main>
-
-<footer class="footer_area p_120">
-<div class="container">
-  <div class="row footer_inner">
-    <div class="col-lg-5 col-sm-6">
-      <aside class="f_widget ab_widget">
-        <div class="f_title">
-          <h3>About Me</h3>
-        </div>
-        <p>
-          Do you want to be even more successful? Learn to love learning
-          and growth. The more effort you put into improving your skills,
-        </p>
-        <p>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          Copyright &copy; All rights reserved | This template is made
-          with
-          <i class="fa fa-heart-o" aria-hidden="true"></i> by
-          <a href="https://colorlib.com" target="_blank">Colorlib</a>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        </p>
-      </aside>
-    </div>
-    <div class="col-lg-5 col-sm-6"></div>
-    <div class="col-lg-2">
-      <aside class="f_widget social_widget">
-        <div class="f_title">
-          <h3>Follow Me</h3>
-        </div>
-        <p>Let us be social</p>
-        <ul class="list">
-          <li>
-            <a href="#"><i class="fa fa-facebook"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-dribbble"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-behance"></i></a>
-          </li>
-        </ul>
-      </aside>
-    </div>
-  </div>
-</div>
-</footer>
 `;
 
-let serviciosPopulares = [];
 const categorias = [
   "Carpinteria",
   "Plomeria",
@@ -447,7 +397,6 @@ let calcularServiciosMasPopulares = () => {
   });
 
   cantidades = cantidades.sort((a, b) => b.num - a.num);
-  console.log(cantidades);
   let i = 0;
   let htmlServicios = "";
   while (i < 3) {
@@ -478,7 +427,7 @@ let calcularServiciosMasPopulares = () => {
     htmlServicios = htmlServicios + cadena;
     i = i + 1;
   }
-  console.log(htmlServicios);
+
   html = html.replace("REEMPLAZAR", htmlServicios);
 };
 

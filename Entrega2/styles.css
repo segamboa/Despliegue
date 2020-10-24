@@ -71,18 +71,38 @@
 }
 
 .card {
+  background-color: rgb(39, 42, 46);
   min-width: 18rem;
   max-width: 18rem;
-  margin: 5px;
+  margin: 0;
+  margin-bottom: 1.5rem !important;
 }
 .btn {
   background-color: rgb(39, 42, 46);
   color: #ff5733;
 }
-.carta ,td{
+.carta,
+td {
   background-color: rgb(39, 42, 46);
   color: white;
+  margin-bottom: 1.5rem !important;
 }
-.tituloCarta, th{
+.tituloCarta,
+th {
   color: #ff5733;
+}
+
+.table-header {
+  font-weight: bold;
+}
+
+.table-header-row {
+  color: #ff5733 !important;
+  margin: 0;
+}
+
+.card-subtitle {
+  font-weight: bold;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
 }

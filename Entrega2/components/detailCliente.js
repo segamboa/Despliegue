@@ -26,9 +26,10 @@ const renderCliente = (cliente) => {
   clienteBody.classList.add("table-striped");
 
   let header = document.createElement("tr");
-  header.insertCell(0).innerHTML = "id";
+  header.classList.add("table-header");
+  header.insertCell(0).innerHTML = "ID";
   header.insertCell(1).innerHTML = "Nombre";
-  header.insertCell(2).innerHTML = "Telefono";
+  header.insertCell(2).innerHTML = "Teléfono";
   header.insertCell(3).innerHTML = "Correo";
 
   clienteBody.appendChild(header);
@@ -47,9 +48,10 @@ const renderCliente = (cliente) => {
 const renderServicios = (serviciosCliente) => {
   let cardDeck = document.createElement("div");
   cardDeck.classList.add("card-deck");
+  cardDeck.classList.add("justify-content-center");
   serviciosCliente.forEach((item) => {
     let serv = serviciosData.find((element) => element.id === item.fk_servicio);
-    console.log(serv);
+
     let card = document.createElement("div");
     card.classList.add("card");
     card.classList.add("carta");
@@ -62,6 +64,8 @@ const renderServicios = (serviciosCliente) => {
 
     let cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
+    cardBody.classList.add("d-flex");
+    cardBody.classList.add("flex-column");
 
     let cardTitle = document.createElement("h5");
     cardTitle.classList.add("card-title");
@@ -71,14 +75,20 @@ const renderServicios = (serviciosCliente) => {
 
     let cardDescription = document.createElement("p");
     cardDescription.classList.add("card-text");
-    cardDescription.innerHTML = 
-    `
-    <p>${serv.descripcion}</p>\
-    <p>Fecha de contrato: ${item.fecha_contrato}</p>\
-    <p>Precio pactado: ${item.precio_pactado}</p>
+    cardDescription.innerHTML = `
+    <p>${serv.descripcion}</p>
     `;
-    
+    let bottomCard = document.createElement("div");
+    bottomCard.classList.add("mt-auto");
+    let bottomDescr = document.createElement("p");
+    bottomDescr.innerHTML = `
+    <p><strong>Fecha de contrato</strong>: ${item.fecha_contrato}</p>\
+    <p><strong>Precio pactado</strong>: ${item.precio_pactado}</p>
+    `;
+    bottomCard.appendChild(bottomDescr);
+
     cardBody.appendChild(cardDescription);
+    cardBody.appendChild(bottomCard);
 
     card.appendChild(cardBody);
 
