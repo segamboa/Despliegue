@@ -6,7 +6,6 @@ import Nav from 'react-bootstrap/Nav'
 
 import Home from './components/home.js'
 import Component1 from './components/component1.js'
-import EmpresaDetail from './components/empresaDetail.js'
 import ContratosCliente from './components/contratosCliente.js'
 import ProveedorDetail from './components/proveedorDetail.js'
 

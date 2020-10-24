@@ -20,7 +20,6 @@ app.use(cors());
 const contratoProveedorRouter = require("./routes/contratoProveedor.js");
 const contratoClienteRouter = require("./routes/contratoCliente.js");
 
-app.use("/api/empresas", empresasRouter);
 app.use("/api/empresas/contratos", contratoProveedorRouter);
 app.use("/api/clientes/contratos",contratoClienteRouter);
 connectDb();
