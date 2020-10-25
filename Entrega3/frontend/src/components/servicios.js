@@ -78,7 +78,7 @@ const Servicios = () => {
 
 
       return(
-        <div className=" col-lg-3 col-md-4 col-sm-6">
+        <div className=" col-lg-3 col-md-4 col-sm-6" key={index}>
         <Card key={index} style={{ marginBottom:"10px" }}>
           <Card.Body>
             <Card.Title>{element.nombre}</Card.Title>
