@@ -8,8 +8,7 @@ Se cuenta con unas funcionalidades pequeñas como desplegar los servicios On-Dem
 
 
 ## URL de live demo:  
-
-
+https://ddelcastillo.github.io/202020_S1_E6/Entrega2/index.html
 ## Instrucciones de uso:  
 Abrir la página con Live Server, Reload o verla desde GitHub Pages.  
 Navegar en la página principal del sitio y ver la información desplegada.  
@@ -27,3 +26,5 @@ Para la vista de Proveedor se tiene:
 * Mis Contratos: En esta sección se muestra una tabla con datos de los clientes con quienes se ha hecho contrato. En cada fila de la tabla hay un botón para ver el detalle del contrato, lo cual muestra los datos del cliente y una lista de Cards con los servicios que fueron contratados por el cliente, una descripción de cada uno, su precio pactado y la fecha de realización del contrato. Las fotos de las cards son para ilustrar el servicio prestado al final del contrato (por ahora se tienen imagenes de prueba en estas cards).
  
 ## URL de video con funcionalidad de aplicación:  
+
+https://youtu.be/czDaE1Xi5Jg
