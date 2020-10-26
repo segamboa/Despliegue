@@ -28,6 +28,9 @@ const contratoClienteRouter = require("./routes/contratoCliente.js");
 const usuariosRouter = require('./routes/usuario.js');
 app.use('/api/users', usuariosRouter);
 
+const authRouter = require('./routes/auth.js')
+app.use('/api/auth', authRouter)
+
 app.use("/api/clientes/contratos",contratoClienteRouter);
 connectDb();
 
