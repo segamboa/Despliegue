@@ -1,8 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const axios = require("axios").default;
 
 const Home = () => {
+
+  const [servicios, setServicios] = useState([]);
+  
+  useEffect(() => {
+    axios
+      .get(process.env.REACT_APP_API_URL + "/servicios")
+      .then((response) => {
+        setServicios(response.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const categorias = [
+    "Carpintería",
+    "Plomería",
+    "Diseño interiores",
+    "Jardinería",
+    "Tapicería",
+    "Remodelación",
+    "Construcción",
+    "Demolición",
+    "Limpieza",
+    "Seguridad",
+  ];
+
+  /*Calculo de los servicios más populares en la página*/
+
+  let cantidades = [];
+  
+
+  cantidades = cantidades.sort((a, b) => b.num - a.num);
+
+
   return (<><header className="banner"> 
   <div className="banner_inner">
     <div className="container">
@@ -363,6 +398,6 @@ const Home = () => {
     </div>
   </section>
   </main></>);
-}
+};
 
-export default Home
+export default Home;
