@@ -14,3 +14,14 @@ exports.getServiciosContratadosEmpresa = async (req, res) => {
       res.send(result);
     });
 };
+
+exports.getServiciosContratados = async (req, res) => {
+  const allDocs = await mongoClient
+    .db(dbName)
+    .collection(collectionName)
+    .find({})
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.send(result);
+    });
+};
