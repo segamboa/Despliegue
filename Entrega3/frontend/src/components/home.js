@@ -17,25 +17,61 @@ const Home = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const [serviciosContratados, setServiciosContratados] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(process.env.REACT_APP_API_URL + "/proveedores/contratos/")
+      .then((response) => {
+        setServiciosContratados(response.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+
   const categorias = [
-    "Carpintería",
-    "Plomería",
-    "Diseño interiores",
-    "Jardinería",
-    "Tapicería",
-    "Remodelación",
-    "Construcción",
-    "Demolición",
-    "Limpieza",
-    "Seguridad",
+    "carpinteria",
+    "plomeria",
+    "disenio_interiores",
+    "jardineria",
+    "tapiceria",
+    "remodelacion",
+    "construccion",
+    "demolicion",
+    "limpieza",
+    "seguridad",
   ];
 
   /*Calculo de los servicios más populares en la página*/
 
   let cantidades = [];
-  
 
+  categorias.forEach((el) => {
+    let descripcion = "";
+    let cantidad = 0;
+    let ids = [];
+
+    servicios.forEach((element) => {
+      descripcion = element.descripcion;
+      if (element.categoria == el.toLowerCase()) {
+        ids.push(element._id);
+      }
+    });
+
+    ids.forEach((id) => {
+      cantidad = cantidad + serviciosContratados.filter((da) => da.servicio._id == id).length;
+    });
+
+    cantidades.push({ tipo: el, desc: descripcion, num: cantidad });
+  });
   cantidades = cantidades.sort((a, b) => b.num - a.num);
+  let serviciosContratados2 = [];
+  let i = 0;
+  while (i < 3) {
+    serviciosContratados2.push(cantidades[i]);
+    i = i + 1;
+  }
+  console.log(serviciosContratados2)
 
 
   return (<><header className="banner"> 
@@ -333,8 +369,29 @@ const Home = () => {
         </h2>
         <p className="texto">Los tres servicios más populares entre nuestros clientes son:</p>
       </div>
+
+      
   
-      <div id="filaServiciosPopulares" className="row">REEMPLAZAR</div>
+      <div id="filaServiciosPopulares" className="row">
+  {serviciosContratados2.map(s=> <div className="col-12 col-md-6 col-lg-4">
+    <div className="card mb-3 cosa">
+      <div className="row no-gutters">
+        <div className="col-md-4">
+        </div>
+        <div className="col-md-8">
+          <div className="card-body carta">
+            <h5 className="card-title tituloCarta">{s.tipo}</h5>
+            <p className="card-text">{s.desc}</p>
+            <p className="card-text">
+              <small className="text-muted">Contratado: {s.num} veces</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>)}
+
+  </div>
     </div>
   </section>
   
