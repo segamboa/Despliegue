@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { Button, Form, Dropdown, DropdownButton } from "react-bootstrap";
+//import { Button, Form, Dropdown, DropdownButton } from "react-bootstrap";
 
 const axios = require("axios").default;
 
@@ -18,7 +18,7 @@ const ContratosCliente = () => {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_API_URL + "/clientes/contratos/" + id)
+      .get(process.env.REACT_APP_API_URL + "/servicioContratado/cliente/" + id)
       .then((response) => {
         setContratos(response.data);
       })
@@ -32,7 +32,9 @@ const ContratosCliente = () => {
         <td>{element.cliente.nombre}</td>
         <td>{element.calificacion}</td>
         <td>{element.fecha_contrato}</td>
-        <button>Ver proveedor</button>
+        <td>
+          <button>Ver proveedor</button>
+        </td>
       </tr>
     );
   });
@@ -62,6 +64,7 @@ const ContratosCliente = () => {
             <th>Cliente</th>
             <th>Calificación</th>
             <th>Fecha Contrato</th>
+            <th>Detalle de proveedor</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>
