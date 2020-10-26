@@ -14,7 +14,7 @@ app.use(cookieParser());
 app.use(cors());
 
 const servicioContratadoRouter = require("./routes/servicioContratado.js");
-app.use("/api/proveedores/contratos", servicioContratadoRouter);
+app.use("/api/servicioContratado", servicioContratadoRouter);
 
 const proveedoresRouter = require("./routes/proveedor.js");
 app.use("/api/proveedores", proveedoresRouter);
