@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Card, Accordion } from "react-bootstrap";
 
+
 const axios = require("axios").default;
 
 const Home = () => {
@@ -49,18 +50,11 @@ const Home = () => {
   categorias.forEach((el) => {
     let descripcion = "";
     let cantidad = 0;
-    let ids = [];
 
-    servicios.forEach((element) => {
-      descripcion = element.descripcion;
-      if (element.categoria === el.toLowerCase()) {
-        ids.push(element._id);
-      }
-    });
-
-    ids.forEach((id) => {
-      cantidad = cantidad + serviciosContratados.filter((da) => da.servicio._id === id).length;
-    });
+    let filtrados = serviciosContratados.filter((da)=>da.servicio.categoria===el.toLowerCase());
+    filtrados.forEach((el2)=>{descripcion = el2.servicio.descripcion;});
+    cantidad = filtrados.length;
+    
 
     cantidades.push({ tipo: el, desc: descripcion, num: cantidad });
   });
@@ -71,7 +65,6 @@ const Home = () => {
     serviciosContratados2.push(cantidades[i]);
     i = i + 1;
   }
-  console.log(serviciosContratados2)
 
 
   return (<><header className="banner"> 
