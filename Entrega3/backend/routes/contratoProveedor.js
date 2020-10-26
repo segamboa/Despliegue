@@ -4,4 +4,5 @@ const serviciosContratados = require("../controllers/serviciosContratadosControl
 
 router.get("/:id", serviciosContratados.getServiciosContratadosEmpresa);
 router.get("/", serviciosContratados.getServiciosContratados);
+router.post("/", serviciosContratados.crearServiciosContratados);
 module.exports = router;
