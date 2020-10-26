@@ -8,7 +8,7 @@ const axios = require("axios").default;
 
 const Servicios = () => {
   const [servicios, setServicios] = useState([]);
-  
+
   useEffect(() => {
     axios
       .get(process.env.REACT_APP_API_URL + "/servicios")
@@ -16,7 +16,7 @@ const Servicios = () => {
         setServicios(response.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const categorias = [
     "Carpintería",
@@ -74,25 +74,25 @@ const Servicios = () => {
       );
     }
   };
-  const cartas =(cat)=> filtro(cat).map((element, index) => {
-
-
-      return(
-        <div className=" col-lg-3 col-md-4 col-sm-6" key={index}>
-        <Card key={index} style={{ marginBottom:"10px" }}>
-          <Card.Body>
-            <Card.Title>{element.nombre}</Card.Title>
-            <Card.Text>
-              {element.descripcion}              <br></br>
+  const cartas = (cat) =>
+    filtro(cat).map((element, index) => {
+      return (
+        <div className=" col-lg-3 col-sm-6" key={index}>
+          <Card key={index} style={{ marginBottom: "10px" }}>
+            <Card.Body>
+              <Card.Title>{element.nombre}</Card.Title>
+              <Card.Text>
+                {element.descripcion} <br></br>
                 <strong>{element.precio_minimo}</strong>
-            </Card.Text>
-            <Button variant="primary">{element.proveedor.nombre}</Button>
-          </Card.Body>
-        </Card>
+              </Card.Text>
+              <Button variant="primary" style={{ marginBottom: "10px" }}>{element.proveedor.nombre}</Button>
+              <br></br>
+              <Button variant="primary">Contratar</Button>
+            </Card.Body>
+          </Card>
         </div>
       );
-    
-  });
+    });
 
   // function CustomToggle({ children, eventKey }) {
   //   const decoratedOnClick = useAccordionToggle(eventKey, () => (
@@ -107,16 +107,18 @@ const Servicios = () => {
     return (
       <Card key={index}>
         <Card.Header>
-        <Accordion.Toggle as={Button} variant="link" eventKey={index+1}>
-        {element}
-      </Accordion.Toggle>
+          <Accordion.Toggle as={Button} variant="link" eventKey={index + 1}>
+            {element}
+          </Accordion.Toggle>
         </Card.Header>
-        <Accordion.Collapse eventKey={index+1}> 
-    <Card.Body><div className="row">{cartas(element)}</div></Card.Body>
+        <Accordion.Collapse eventKey={index + 1}>
+          <Card.Body>
+            <div className="row">{cartas(element)}</div>
+          </Card.Body>
         </Accordion.Collapse>
       </Card>
     );
   });
-return <Accordion>{elements}</Accordion>;
+  return <Accordion>{elements}</Accordion>;
 };
 export default Servicios;
