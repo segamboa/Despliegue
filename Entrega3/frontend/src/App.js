@@ -9,6 +9,7 @@ import Component1 from "./components/component1.js";
 import ProveedorDetail from "./components/proveedorDetail.js";
 import ContratosProveedor from "./components/contratosProveedor.js";
 import Servicios from "./components/servicios.js";
+import Footer from "./components/footer.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import ContratosCliente from './components/contratosCliente.js'
@@ -22,6 +23,9 @@ function App() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/component1">Component 1</Nav.Link>
+            <Nav.Link href='/servicios'>Servicios</Nav.Link>
+            <Nav.Link href='/clientes/contratos/:id'>Contratos cliente</Nav.Link>
+
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -49,7 +53,9 @@ function App() {
           <Home />
         </Route>
       </Switch>
+      <Footer></Footer>
     </Router>
+
   );
 }
 
