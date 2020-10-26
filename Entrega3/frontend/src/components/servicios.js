@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 //import { useParams } from "react-router";
-import { Button, Card, Accordion } from "react-bootstrap";
+import { Button, Card, Accordion, Form, FormControl } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 //import { useAccordionToggle } from "react-bootstrap/AccordionToggle";
 
@@ -8,7 +8,7 @@ const axios = require("axios").default;
 
 const Servicios = () => {
   const [servicios, setServicios] = useState([]);
-  
+
   useEffect(() => {
     axios
       .get(process.env.REACT_APP_API_URL + "/servicios")
@@ -18,7 +18,7 @@ const Servicios = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  const categorias = [
+  /* const categorias = [
     "Carpintería",
     "Plomería",
     "Diseño interiores",
@@ -73,26 +73,62 @@ const Servicios = () => {
         (categoria) => categoria.categoria === "seguridad"
       );
     }
+  }; */
+
+  const categorias = [
+    "Carpintería",
+    "Plomería",
+    "Diseño interiores",
+    "Jardinería",
+    "Tapicería",
+    "Remodelación",
+    "Construcción",
+    "Demolición",
+    "Limpieza",
+    "Seguridad",
+  ];
+
+  const categoriasValue = {
+    Carpintería: "carpinteria",
+    Plomería: "plomeria",
+    "Diseño interiores": "disenio_interiores",
+    Jardinería: "jardineria",
+    Tapicería: "tapiceria",
+    Remodelación: "remodelacion",
+    Construcción: "construccion",
+    Demolición: "demolicion",
+    Limpieza: "limpieza",
+    Seguridad: "seguridad",
   };
-  const cartas =(cat)=> filtro(cat).map((element, index) => {
 
+  const filtro = (cat, precio_min, precio_max) => {
+    return servicios.filter((servicio) => {
+      return (
+        servicio.categoria === (categoriasValue[cat] ? categoriasValue[cat] : "") &&
+        servicio.precio_minimo >= (precio_min ? precio_min : 0) &&
+        servicio.precio_maximo <=
+          (precio_max ? precio_min : Number.MAX_SAFE_INTEGER)
+      );
+    });
+  };
 
-      return(
+  const cartas = (cat) =>
+    filtro(cat).map((element, index) => {
+      return (
         <div className=" col-lg-3 col-md-4 col-sm-6" key={index}>
-        <Card key={index} style={{ marginBottom:"10px" }}>
-          <Card.Body>
-            <Card.Title>{element.nombre}</Card.Title>
-            <Card.Text>
-              {element.descripcion}              <br></br>
+          <Card key={index} style={{ marginBottom: "10px" }}>
+            <Card.Body>
+              <Card.Title>{element.nombre}</Card.Title>
+              <Card.Text>
+                {element.descripcion} <br></br>
                 <strong>{element.precio_minimo}</strong>
-            </Card.Text>
-            <Button variant="primary">{element.proveedor.nombre}</Button>
-          </Card.Body>
-        </Card>
+              </Card.Text>
+              <Button variant="primary">{element.proveedor.nombre}</Button>
+            </Card.Body>
+          </Card>
         </div>
       );
-    
-  });
+    });
 
   // function CustomToggle({ children, eventKey }) {
   //   const decoratedOnClick = useAccordionToggle(eventKey, () => (
@@ -107,16 +143,37 @@ const Servicios = () => {
     return (
       <Card key={index}>
         <Card.Header>
-        <Accordion.Toggle as={Button} variant="link" eventKey={index+1}>
-        {element}
-      </Accordion.Toggle>
+          <Accordion.Toggle as={Button} variant="link" eventKey={index + 1}>
+            {element}
+          </Accordion.Toggle>
         </Card.Header>
-        <Accordion.Collapse eventKey={index+1}> 
-    <Card.Body><div className="row">{cartas(element)}</div></Card.Body>
+        <Accordion.Collapse eventKey={index + 1}>
+          <Card.Body>
+            <div className="row">{cartas(element)}</div>
+          </Card.Body>
         </Accordion.Collapse>
       </Card>
     );
   });
-return <Accordion>{elements}</Accordion>;
+
+  const handleSubmit = () => {};
+
+  return (
+    <div>
+      <div>
+        <Form>
+          <Form.Label htmlFor="filter"></Form.Label>
+          <FormControl
+            name="Filter"
+            placeholder="Precio Mínimo"
+            type="number"
+            id="filter"
+          />
+          <Button onClick={handleSubmit}>Submit</Button>
+        </Form>
+      </div>
+      <Accordion>{elements}</Accordion>
+    </div>
+  );
 };
 export default Servicios;

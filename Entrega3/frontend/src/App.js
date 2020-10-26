@@ -11,7 +11,7 @@ import ContratosProveedor from "./components/contratosProveedor.js";
 import Servicios from "./components/servicios.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import ContratosCliente from './components/contratosCliente.js'
+import ContratosCliente from "./components/contratosCliente.js";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/component1">Component 1</Nav.Link>
+            <Nav.Link href="/servicios">Servicio</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -42,10 +42,10 @@ function App() {
         <Route path="/proveedores/:id">
           <ProveedorDetail />
         </Route>
-        <Route path='/clientes/contratos/:id'>
-          <ContratosCliente/>
+        <Route path="/clientes/contratos/:id">
+          <ContratosCliente />
         </Route>
-        <Route path='/'>
+        <Route path="/">
           <Home />
         </Route>
       </Switch>
