@@ -13,6 +13,7 @@ const Servicios = () => {
     axios
       .get(process.env.REACT_APP_API_URL + "/servicios")
       .then((response) => {
+        console.log(response);
         setServicios(response.data);
       })
       .catch((err) => console.log(err));
@@ -104,7 +105,8 @@ const Servicios = () => {
   const filtro = (cat, precio_min, precio_max) => {
     return servicios.filter((servicio) => {
       return (
-        servicio.categoria === (categoriasValue[cat] ? categoriasValue[cat] : "") &&
+        servicio.categoria ===
+          (categoriasValue[cat] ? categoriasValue[cat] : "") &&
         servicio.precio_minimo >= (precio_min ? precio_min : 0) &&
         servicio.precio_maximo <=
           (precio_max ? precio_min : Number.MAX_SAFE_INTEGER)

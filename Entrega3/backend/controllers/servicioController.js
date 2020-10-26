@@ -1,6 +1,6 @@
 const { mongoClient } = require("../lib/mongodb.js");
 
-const dbName = "heaphestus";
+const dbName = process.env.DB_NAME;
 const collectionName = "servicios";
 
 exports.getServicio = async (req, res) => {
@@ -16,18 +16,17 @@ exports.getServicio = async (req, res) => {
   res.send(servicio);
 };
 
-exports.getServicios = async(req, res)=> {
+exports.getServicios = async (req, res) => {
   const servicio = await mongoClient
     .db(dbName)
     .collection(collectionName)
     .find({})
     .toArray();
-    //console.log(servicio);
-    if(!servicio){
-      res.status(404).send("There are no services");
-      return;
-    }
-    //console.log(servicio);  
-    res.send(servicio);
-    
-}
+  //console.log(servicio);
+  if (!servicio) {
+    res.status(404).send("There are no services");
+    return;
+  }
+  //console.log(servicio);
+  res.send(servicio);
+};

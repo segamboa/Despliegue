@@ -1,7 +1,7 @@
 const { mongoClient } = require("../lib/mongodb.js");
 const servicioController = require("./servicioController.js");
 
-const dbName = "heaphestus";
+const dbName = process.env.DB_NAME;
 const collectionName = "serviciosContratados";
 exports.getServiciosContratadosEmpresa = async (req, res) => {
   const idEmpresa = req.params.id;

@@ -1,6 +1,6 @@
 const { mongoClient } = require("../lib/mongodb.js");
 
-const dbName = "heaphestus";
+const dbName = process.env.DB_NAME;
 const collectionName = "clientes";
 
 exports.getCliente = async (req, res) => {
