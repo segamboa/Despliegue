@@ -13,8 +13,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 
-const contratoProveedorRouter = require("./routes/contratoProveedor.js");
-app.use("/api/proveedores/contratos", contratoProveedorRouter);
+const servicioContratadoRouter = require("./routes/servicioContratado.js");
+app.use("/api/proveedores/contratos", servicioContratadoRouter);
 
 const proveedoresRouter = require("./routes/proveedor.js");
 app.use("/api/proveedores", proveedoresRouter);
@@ -23,15 +23,11 @@ app.use(cors());
 const servicioRouter = require("./routes/servicio.js");
 app.use("/api/servicios", servicioRouter);
 
-const contratoClienteRouter = require("./routes/contratoCliente.js");
-app.use("/api/clientes/contratos", contratoClienteRouter);
-
 const clienteRouter = require("./routes/clienteRouter.js");
 app.use("/api/clientes", clienteRouter);
 const usuariosRouter = require("./routes/usuario.js");
 app.use("/api/users", usuariosRouter);
 
-app.use("/api/clientes/contratos", contratoClienteRouter);
 connectDb();
 
 module.exports = app;
