@@ -28,12 +28,10 @@ exports.getServicios = async (req, res) => {
     res.status(404).send("There are no services");
     return;
   }
-  console.log(servicio);
   res.send(servicio);
 };
 
 exports.crearServicio = async (req, res) => {
-  console.log(req.body.proveedor);
   const provId = ObjectId(req.body.proveedor._id);
   const proveedor = await mongoClient
     .db(dbName)
@@ -44,13 +42,20 @@ exports.crearServicio = async (req, res) => {
       .status(404)
       .send("El proveedor al que quiere asignar el servicio no existe");
   } else {
-    console.log("ELSE");
-    console.log(proveedor);
     const newServ = req.body;
+    const id_prov = ObjectId(newServ.proveedor._id);
+    let servAdd = {
+      proveedor: newServ.proveedor,
+      nombre: newServ.nombre,
+      descripcion: newServ.descripcion,
+      precio_minimo: newServ.precio_minimo,
+      categoria: newServ.categoria,
+    };
+    servAdd.proveedor._id = id_prov;
     const create = await mongoClient
       .db(dbName)
       .collection(collectionName)
-      .insertOne(newServ)
+      .insertOne(servAdd)
       .then((data) => {
         //console.log(data);
         res.status(200).send("Servicio creado");
@@ -72,9 +77,9 @@ exports.actualizarServicio = async (req, res) => {
     )
     .then((data) => {
       if (!data.matchedCount) {
-        res.status(404).send("No se encontró proveedor con id especificado");
+        res.status(404).send("No se encontró servicio con id especificado");
       }
-      res.status(200).send("Proveedor actualizado correctamente");
+      res.status(200).send("Servicio actualizado correctamente");
     })
     .catch((err) => console.log(err));
 };
@@ -87,8 +92,8 @@ exports.borrarServicio = async (req, res) => {
     .deleteOne({ _id: id })
     .then((data) => {
       if (!data.deletedCount) {
-        res.status(404).send("No se encontró proveedor para borrar");
+        res.status(404).send("No se encontró servicio para borrar");
       }
-      res.status(200).send("Proveedor eliminado");
+      res.status(200).send("Servicio eliminado");
     });
 };
