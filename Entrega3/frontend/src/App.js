@@ -9,6 +9,7 @@ import Component1 from "./components/component1.js";
 import ProveedorDetail from "./components/proveedorDetail.js";
 import ContratosProveedor from "./components/contratosProveedor.js";
 import Servicios from "./components/servicios.js";
+import Footer from "./components/footer.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import ContratosCliente from './components/contratosCliente.js'
@@ -49,7 +50,9 @@ function App() {
           <Home />
         </Route>
       </Switch>
+      <Footer></Footer>
     </Router>
+
   );
 }
 
