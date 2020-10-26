@@ -1,10 +1,10 @@
 const { mongoClient } = require("../lib/mongodb.js");
-
-const dbName = "heaphestus";
+const ObjectId = require("mongodb").ObjectId;
+const dbName = process.env.DB_NAME;
 const collectionName = "clientes";
 
 exports.getCliente = async (req, res) => {
-  const id = req.params.id;
+  const id = ObjectId(req.params.id);
   const cliente = await mongoClient
     .db(dbName)
     .collection(collectionName)
@@ -39,4 +39,38 @@ exports.crearCliente = async (req, res) => {
       res.status(200).send("Cliente creado");
     })
     .catch((err) => console.log(err));
+};
+
+exports.actualizarCliente = async (req, res) => {
+  const id = ObjectId(req.params.id);
+  const create = await mongoClient
+    .db(dbName)
+    .collection(collectionName)
+    .updateOne(
+      {
+        _id: id,
+      },
+      { $set: req.body }
+    )
+    .then((data) => {
+      if (!data.matchedCount) {
+        res.status(404).send("No se encontró cliente con id especificado");
+      }
+      res.status(200).send("Clente actualizado correctamente");
+    })
+    .catch((err) => console.log(err));
+};
+
+exports.borrarCliente = async (req, res) => {
+  const id = ObjectId(req.params.id);
+  const borrar = await mongoClient
+    .db(dbName)
+    .collection(collectionName)
+    .deleteOne({ _id: id })
+    .then((data) => {
+      if (!data.deletedCount) {
+        res.status(404).send("No se encontró cliente para borrar");
+      }
+      res.status(200).send("Cliente eliminado");
+    });
 };
