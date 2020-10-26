@@ -19,7 +19,9 @@ function ContratosProveedor() {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_API_URL + "/proveedores/contratos/" + id)
+      .get(
+        process.env.REACT_APP_API_URL + "/servicioContratado/proveedor/" + id
+      )
       .then((response) => {
         setContratos(response.data);
       })
