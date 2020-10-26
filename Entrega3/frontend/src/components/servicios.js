@@ -78,7 +78,7 @@ const Servicios = () => {
 
 
       return(
-        <div className=" col-lg-3 col-md-4 col-sm-6" key={index}>
+        <div  key={index}>
         <Card key={index} style={{ marginBottom:"10px" }}>
           <Card.Body>
             <Card.Title>{element.nombre}</Card.Title>
@@ -87,6 +87,7 @@ const Servicios = () => {
                 <strong>{element.precio_minimo}</strong>
             </Card.Text>
             <Button variant="primary">{element.proveedor.nombre}</Button>
+            <Button variant="primary">Contratar</Button>
           </Card.Body>
         </Card>
         </div>
