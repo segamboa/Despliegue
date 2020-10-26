@@ -25,3 +25,15 @@ exports.getServiciosContratados = async (req, res) => {
       res.send(result);
     });
 };
+
+exports.crearServiciosContratados = async (req, res) => {
+  const newServicioContratado = req.body;
+  const create = await mongoClient
+    .db(dbName)
+    .collection(collectionName)
+    .insertOne(newServicioContratado)
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => console.log(err));
+};

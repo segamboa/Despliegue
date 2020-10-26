@@ -20,16 +20,18 @@ const proveedoresRouter = require("./routes/proveedor.js");
 app.use("/api/proveedores", proveedoresRouter);
 app.use(cors());
 
-
 const servicioRouter = require("./routes/servicio.js");
 app.use("/api/servicios", servicioRouter);
 
 const contratoClienteRouter = require("./routes/contratoCliente.js");
+app.use("/api/clientes/contratos", contratoClienteRouter);
 
-const usuariosRouter = require('./routes/usuario.js');
-app.use('/api/users', usuariosRouter);
+const clienteRouter = require("./routes/clienteRouter.js");
+app.use("/api/clientes", clienteRouter);
+const usuariosRouter = require("./routes/usuario.js");
+app.use("/api/users", usuariosRouter);
 
-app.use("/api/clientes/contratos",contratoClienteRouter);
+app.use("/api/clientes/contratos", contratoClienteRouter);
 connectDb();
 
 module.exports = app;
