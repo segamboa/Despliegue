@@ -1,8 +1,9 @@
 const { mongoClient } = require("../lib/mongodb.js");
 const servicioController = require("./servicioController.js");
-
 const dbName = process.env.DB_NAME;
 const collectionName = "serviciosContratados";
+const ObjectId = require("mongodb").ObjectId;
+
 /*EMPRESA*/
 exports.getServiciosContratadosEmpresa = async (req, res) => {
   const idEmpresa = req.params.id;
@@ -29,6 +30,7 @@ exports.getServiciosContratados = async (req, res) => {
 /* CLIENTES*/
 exports.getContratosCliente = async (req, res) => {
   const idCliente = ObjectId(req.params.id);
+  console.log(typeof(idCliente))
   const contratos = await mongoClient
     .db(dbName)
     .collection(collectionName)
@@ -78,6 +80,9 @@ exports.putContrato = async (req, res) => {
     servicio: req.body.servicio,
     cliente: req.body.cliente
   };
+  contrato.servicio._id = ObjectId(contrato.servicio._id);
+  contrato.servicio.proveedor._id = ObjectId(contrato.servicio.proveedor._id);
+  contrato.cliente._id = ObjectId(contrato.cliente._id);
   conn.then((client) => {
     mongoClient.db(dbName).collection(collectionName).updateOne({ _id:idContrato, "cliente._id":idCliente}, { $set: { servicio: contrato.servicio ,cliente:contrato.cliente} });
   });
