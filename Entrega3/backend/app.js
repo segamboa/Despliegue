@@ -24,8 +24,10 @@ const servicioRouter = require("./routes/servicio.js");
 app.use("/api/servicios", servicioRouter);
 
 const contratoClienteRouter = require("./routes/contratoCliente.js");
+app.use("/api/clientes/contratos", contratoClienteRouter);
 
-app.use("/api/clientes/contratos",contratoClienteRouter);
+const clienteRouter = require("./routes/clienteRouter.js");
+app.use("/api/clientes", clienteRouter);
 connectDb();
 
 module.exports = app;
