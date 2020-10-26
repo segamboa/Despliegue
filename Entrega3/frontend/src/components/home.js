@@ -52,6 +52,7 @@ const Home = () => {
     let cantidad = 0;
 
     let filtrados = serviciosContratados.filter((da)=>da.servicio.categoria===el.toLowerCase());
+    console.log(serviciosContratados);
     filtrados.forEach((el2)=>{descripcion = el2.servicio.descripcion;});
     cantidad = filtrados.length;
     
