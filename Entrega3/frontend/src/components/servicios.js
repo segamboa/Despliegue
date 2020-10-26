@@ -83,7 +83,7 @@ const Servicios = () => {
               <Card.Title>{element.nombre}</Card.Title>
               <Card.Text>
                 {element.descripcion} <br></br>
-                <strong>{element.precio_minimo}</strong>
+                <strong>Precio mínimo: ${element.precio_minimo}</strong>
               </Card.Text>
               <Button variant="primary" style={{ marginBottom: "10px" }}>{element.proveedor.nombre}</Button>
               <br></br>
