@@ -22,6 +22,7 @@ function App() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/component1">Component 1</Nav.Link>
+            <Nav.Link href='/clientes/contratos/:id'>Contratos cliente</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
