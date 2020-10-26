@@ -8,6 +8,7 @@ const axios = require("axios").default;
 
 const Servicios = () => {
   const [servicios, setServicios] = useState([]);
+  const [precioMin, setPrecioMin] = useState(0);
 
   useEffect(() => {
     axios
@@ -104,19 +105,20 @@ const Servicios = () => {
 
   const filtro = (cat, precio_min, precio_max) => {
     //console.log(servicios);
+    // let catVal = categoriasValue[cat] ? categoriasValue[cat] : "";
+    // let preVal = precio_min ? precio_min : 0;
+    // let maxVal = precio_max ? precio_min : Number.MAX_SAFE_INTEGER;
     return servicios.filter((servicio) => {
       return (
         servicio.categoria ===
           (categoriasValue[cat] ? categoriasValue[cat] : "") &&
-        servicio.precio_minimo >= (precio_min ? precio_min : 0) &&
-        servicio.precio_maximo <=
-          (precio_max ? precio_min : Number.MAX_SAFE_INTEGER)
+        servicio.precio_minimo >= (precio_min ? precio_min : 0)
       );
     });
   };
 
-  const cartas = (cat) =>
-    filtro(cat).map((element, index) => {
+  const cartas = (cat, precio) =>
+    filtro(cat, precio).map((element, index) => {
       return (
         <div className=" col-lg-3 col-md-4 col-sm-6" key={index}>
           <Card key={index} style={{ marginBottom: "10px" }}>
@@ -152,14 +154,16 @@ const Servicios = () => {
         </Card.Header>
         <Accordion.Collapse eventKey={index + 1}>
           <Card.Body>
-            <div className="row">{cartas(element)}</div>
+            <div className="row">{cartas(element, precioMin)}</div>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
     );
   });
 
-  const handleSubmit = () => {};
+  const handleSubmit = (event) => {
+    console.log(precioMin);
+  };
 
   return (
     <div>
@@ -171,8 +175,9 @@ const Servicios = () => {
             placeholder="Precio Mínimo"
             type="number"
             id="filter"
+            onChange={(event) => setPrecioMin(event.target.value)}
           />
-          <Button onClick={handleSubmit}>Submit</Button>
+          <Button onClick={(event) => handleSubmit(event)}>Submit</Button>
         </Form>
       </div>
       <Accordion>{elements}</Accordion>
