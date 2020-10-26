@@ -14,6 +14,7 @@ const Home = () => {
       .get(process.env.REACT_APP_API_URL + "/servicios")
       .then((response) => {
         setServicios(response.data);
+        console.log(servicios);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -22,9 +23,10 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_API_URL + "/proveedores/contratos/")
+      .get(process.env.REACT_APP_API_URL + "/servicioContratado")
       .then((response) => {
         setServiciosContratados(response.data);
+        console.log(serviciosContratados);
       })
       .catch((err) => console.log(err));
   }, []);
