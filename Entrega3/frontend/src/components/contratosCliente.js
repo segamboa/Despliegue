@@ -9,12 +9,12 @@ const ContratosCliente = () => {
 
   const [contratos, setContratos] = useState([]);
   const [servicios, setServicios] = useState([]);
-  const [value,setValue]=useState({});
+  const [value, setValue] = useState({});
 
-  const handleSelect=(evt)=>{
+  const handleSelect = (evt) => {
     console.log(evt.target.value);
-    setValue(evt.target.value)
-  }
+    setValue(evt.target.value);
+  };
 
   useEffect(() => {
     axios
@@ -53,16 +53,6 @@ const ContratosCliente = () => {
 
   return (
     <div>
-      <h1>Agregar contrato</h1>
-      <Form>
-        <Form.Label>Nombre servicio</Form.Label>
-        <select onChange={e=>console.log(e.target)} title="Servicios">
-          {servicios.map((e, index) => {
-            return <option key={index + 1} value={e}>{e.nombre}</option>;
-          })}
-        </select>
-        <Button>Aceptar</Button>
-      </Form>
       <h1>Tus contratos</h1>
       <table className="table table-striped">
         <thead>

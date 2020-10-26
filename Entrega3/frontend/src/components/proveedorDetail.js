@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router'
-const axios = require('axios').default
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+import { Button } from "react-bootstrap";
+
+const axios = require('axios').default;
+
 
 const ProveedorDetail = () => {
   const { id } = useParams()
@@ -28,13 +31,14 @@ const ProveedorDetail = () => {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return ( 
-    <div className ="texto">
+    <div className ="fondo">
       <h5>{proveedor.nombre}</h5>
         <p>
           Direccion: {proveedor.direccion} <br/>
           Ciudad: {proveedor.ciudad} <br/>
           Email: {proveedor.correo} <br/>
         </p>
+        <Button>Agregar servicio</Button>
       </div>
   )
 }

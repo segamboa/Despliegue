@@ -4,5 +4,7 @@ const contratoClienteController = require('../controllers/contratoClienteControl
 
 router.get("/:id",contratoClienteController.getContratosCliente);
 router.get("/:id/:idContrato",contratoClienteController.getContrato);
-router.get("/:id",contratoClienteController.postContrato);
+router.post("/",contratoClienteController.postContrato);
+router.put("/:id/:idContrato",contratoClienteController.putContrato);
+
 module.exports=router;
