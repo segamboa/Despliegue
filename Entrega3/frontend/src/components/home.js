@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Button, Card, Accordion } from "react-bootstrap";
 
 const axios = require("axios").default;
 
@@ -53,13 +53,13 @@ const Home = () => {
 
     servicios.forEach((element) => {
       descripcion = element.descripcion;
-      if (element.categoria == el.toLowerCase()) {
+      if (element.categoria === el.toLowerCase()) {
         ids.push(element._id);
       }
     });
 
     ids.forEach((id) => {
-      cantidad = cantidad + serviciosContratados.filter((da) => da.servicio._id == id).length;
+      cantidad = cantidad + serviciosContratados.filter((da) => da.servicio._id === id).length;
     });
 
     cantidades.push({ tipo: el, desc: descripcion, num: cantidad });
@@ -166,135 +166,83 @@ const Home = () => {
   <section className="divSeccion">
     <div className="container">
       <div className="row">
+
         <div className="col-lg-6 mb-5 mb-lg-0">
           <img src="images/aboutus.jpg" alt="Image" className="img-fluid altura1" />
         </div>
-        <div className="col-lg-5 ml-auto">
-          <span className="sub-title">¿Por qué UService?</span>
-          <h2 className="font-weight-bold text-black mb-5 texto">Sobre Nosotros</h2>
-          <div className="card-body">
-            <p className="texto">
-              Te facilitamos el proceso de contacto y contratación de
-              servicios varios para tu compañía en 4 sencillos pasos.
-              ¡Conócelos!
-            </p>
-          </div>
-  
-          <div className="accordion" id="accordionExample">
-            <h2 className="mb-0 border rounded mb-2 eliminar">
-              <button
-                className="btn collapsed extend"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-                1. Tenemos los mejores profesionales del mercado
-              </button>
-            </h2>
-  
-            <div
-              id="collapseOne"
-              className="collapse"
-              aria-labelledby="headingOne"
-              data-parent="#accordionExample"
-            >
-              <div className="card-body">
-                <p className="textBody texto">
-                  Los profesionales de nuestro catálogo son profesionales de
-                  alta calidad que estarán dispuestos a ayudarte a
-                  desarrollar las actividades de tu compañía.
-                </p>
-              </div>
-            </div>
-  
-            <h2 className="mb-0 border rounded mb-2 eliminar">
-              <button
-                className="btn collapsed extend"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseTwo"
-                aria-expanded="false"
-                aria-controls="collapseTwo"
-              >
-                2. Cumple las expectativas organizacionales
-              </button>
-            </h2>
-  
-            <div
-              id="collapseTwo"
-              className="collapse"
-              aria-labelledby="headingTwo"
-              data-parent="#accordionExample"
-            >
-              <div className="card-body">
-                <p className="textBody texto">
-                  Nosotros te ayudamos a buscar y filtrar los profesionales
-                  y servicios mejor adecuados para tus necesidades. Además,
-                  puedes contactarlos y contratarlos a través de nuestra
-                  página web sin ningún costo adicional.
-                </p>
-              </div>
-            </div>
-  
-            <h2 className="mb-0 border rounded mb-2 eliminar">
-              <button
-                className="btn collapsed extend"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseThree"
-                aria-expanded="false"
-                aria-controls="collapseThree"
-              >
-                3. Te mantenemos informado del estado de tu servicio
-              </button>
-            </h2>
-  
-            <div
-              id="collapseThree"
-              className="collapse"
-              aria-labelledby="headingThree"
-              data-parent="#accordionExample"
-            >
-              <div className="card-body">
-                <p className=" texto">
+        
+        <div className="col-lg-5 ml-auto centrado">
+        <span className="sub-title centrado">¿Por qué UService?</span>
+        <h2 className="font-weight-bold text-black mb-5 textoNegro">Sobre Nosotros</h2>
+        <div className="card-body">
+          <p className="textoNegro">
+            Te facilitamos el proceso de contacto y contratación de
+            servicios varios para tu compañía en 4 sencillos pasos.
+            ¡Conócelos!
+          </p>
+        </div>
+
+        <Accordion className="centrado">
+  <Card className="centrado">
+    <Card.Header className="centrado">
+      <Accordion.Toggle as={Button} variant="link" eventKey="0">
+      1. Tenemos los mejores profesionales del mercado
+      </Accordion.Toggle>
+    </Card.Header>
+    <Accordion.Collapse eventKey="0">
+      <Card.Body> 
+        Los profesionales de nuestro catálogo son profesionales de
+        alta calidad que estarán dispuestos a ayudarte a
+        desarrollar las actividades de tu compañía.
+      </Card.Body>
+    </Accordion.Collapse>
+  </Card>
+  <Card>
+    <Card.Header>
+      <Accordion.Toggle as={Button} variant="link" eventKey="1">
+      2. Cumple las expectativas organizacionales
+      </Accordion.Toggle>
+    </Card.Header>
+    <Accordion.Collapse eventKey="1">
+      <Card.Body> 
+        Nosotros te ayudamos a buscar y filtrar los profesionales
+        y servicios mejor adecuados para tus necesidades. Además,
+        puedes contactarlos y contratarlos a través de nuestra
+        página web sin ningún costo adicional.
+      </Card.Body>
+    </Accordion.Collapse>
+  </Card>
+  <Card>
+    <Card.Header>
+      <Accordion.Toggle as={Button} variant="link" eventKey="2">
+      3. Te mantenemos informado del estado de tu servicio
+      </Accordion.Toggle>
+    </Card.Header>
+    <Accordion.Collapse eventKey="2">
+      <Card.Body>
                   Te mostramos el estado de tu proyecto y puedes utilizar
                   nuestra plataforma como canal de comunicación y registro
                   de actividades de tus servicios.
-                </p>
-              </div>
-            </div>
-  
-            <h2 className="mb-0 border rounded mb-2 eliminar">
-              <button
-                className="btn collapsed extend"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseFour"
-                aria-expanded="false"
-                aria-controls="collapseFour"
-              >
-                4. ¡Disfruta del resultado final!
-              </button>
-            </h2>
-  
-            <div
-              id="collapseFour"
-              className="collapse"
-              aria-labelledby="headingFour"
-              data-parent="#accordionExample"
-            >
-              <div className="card-body">
-                <p className="textBody texto">
+      </Card.Body>
+    </Accordion.Collapse>
+  </Card>
+  <Card>
+    <Card.Header>
+      <Accordion.Toggle as={Button} variant="link" eventKey="3">
+            4. ¡Disfruta del resultado final!
+      </Accordion.Toggle>
+    </Card.Header>
+    <Accordion.Collapse eventKey="3">
+      <Card.Body>
                   Observa los resultados al terminar el proceso, realiza
                   modificaciones y continúa con nosotros para futuros
                   proyectos.
-                </p>
-              </div>
-            </div>
-          </div>
+      </Card.Body>
+    </Accordion.Collapse>
+  </Card>
+</Accordion>  
         </div>
+
       </div>
     </div>
   </section>
@@ -302,7 +250,7 @@ const Home = () => {
   <section className="projects_area">
     <div className="titulo centrado2">
       <span className="sub-title centrado">¿Cómo trabajamos?</span>
-      <h2 className="font-weight-bold text-black mb-5 centrado texto">
+      <h2 className="font-weight-bold text-black mb-5 centrado textoNegro">
         Proyectos Realizados
       </h2>
     </div>
@@ -399,14 +347,14 @@ const Home = () => {
     <div className="container">
       <div className="titulo centrado2">
         <span className="sub-title centrado">¿Qué quieres decirnos?</span>
-        <h2 className="font-weight-bold text-black mb-5 centrado texto">
+        <h2 className="font-weight-bold text-black mb-5 centrado textoNegro">
           ¡Contáctanos!
         </h2>
   
         <form action="#" className="p-5 bg-white fondo">
           <div className="row form-group">
             <div className="col-md-12 mb-3 mb-md-0">
-              <label className="font-weight-bold" htmlFor="fullname"
+              <label className="font-weight-bold textoNegro" htmlFor="fullname"
                 >Tu nombre:</label
               >
               <input
@@ -419,7 +367,7 @@ const Home = () => {
           </div>
           <div className="row form-group">
             <div className="col-md-12">
-              <label className="font-weight-bold" htmlFor="email">Email:</label>
+              <label className="font-weight-bold textoNegro" htmlFor="email">Email:</label>
               <input
                 type="email"
                 id="email"
@@ -431,7 +379,7 @@ const Home = () => {
   
           <div className="row form-group">
             <div className="col-md-12">
-              <label className="font-weight-bold" htmlFor="message"
+              <label className="font-weight-bold textoNegro" htmlFor="message"
                 >¿Que nos quieres decir?:</label
               >
               <textarea
