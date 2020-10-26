@@ -8,5 +8,5 @@ router.get(
 );
 router.get("/cliente/:id", serviciosContratados.getContratosCliente);
 router.get("/", serviciosContratados.getServiciosContratados);
-router.post("/", serviciosContratados.crearServiciosContratados);
+router.post("/", serviciosContratados.postContrato);
 module.exports = router;
