@@ -604,3 +604,11 @@ th {
 .textoNegro {
   color: black;
 }
+
+@media only screen and  (min-width: 765px){
+  .right-nav{
+    display: block;
+    position: fixed;
+    right: 5rem;
+  }
+}
