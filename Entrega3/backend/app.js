@@ -28,6 +28,9 @@ app.use("/api/clientes", clienteRouter);
 const usuariosRouter = require("./routes/usuario.js");
 app.use("/api/users", usuariosRouter);
 
+const authRouter = require('./routes/auth.js')
+app.use('/api/auth', authRouter)
+
 connectDb();
 
 module.exports = app;
