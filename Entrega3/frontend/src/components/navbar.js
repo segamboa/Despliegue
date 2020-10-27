@@ -11,11 +11,11 @@ const Navbar2 = () => {
   }
   if (user.uid && user.role !== 'visitor') {
     return (
-      <Nav.Link href='#' onClick={logout}>Logout</Nav.Link>
+      <Nav.Link href='#' onClick={logout} className='right-nav'>Logout</Nav.Link>
     )
   } else {
     return (
-      <div className=''>
+      <div className='row right-nav'>
         <Nav.Link href='/login'>Login</Nav.Link>
         <Nav.Link href='/signup'>Signup</Nav.Link>
       </div>

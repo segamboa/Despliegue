@@ -42,8 +42,7 @@ exports.crearProveedor = async (req, res) => {
     .collection(collectionName)
     .insertOne(newProv)
     .then((data) => {
-      //console.log(data);
-      res.status(200).send("Proveedor creado");
+      res.status(200).send("creado");  
     })
     .catch((err) => console.log(err));
 };
