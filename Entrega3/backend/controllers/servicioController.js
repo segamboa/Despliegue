@@ -57,8 +57,7 @@ exports.crearServicio = async (req, res) => {
       .collection(collectionName)
       .insertOne(servAdd)
       .then((data) => {
-        //console.log(data);
-        res.status(200).send("Servicio creado");
+        res.status(200).send("creado"); 
       })
       .catch((err) => console.log(err));
   }
