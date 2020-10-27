@@ -10,7 +10,7 @@ const FormHome = ()=>{
                     <form onSubmit={handleSubmit} className="p-5 bg-white fondo">
                 <div className="row form-group">
                   <div className="col-md-12 mb-3 mb-md-0">
-                    <label className="font-weight-bold textoNegro" htmlfor="name">Tu nombre:</label>
+                    <label className="font-weight-bold textoNegro" htmlFor="name">Tu nombre:</label>
                     <input type="text" className="form-control" name="name" placeholder="Tu nombre" onChange={handleChanges} id="name"/>
                     {errors.name&&<p>{errors.name}</p>}
                 </div>
@@ -19,7 +19,7 @@ const FormHome = ()=>{
 
                 <div className="row form-group">
             <div className="col-md-12">
-                    <label className="font-weight-bold textoNegro" htmlfor="email">Tu correo:</label>
+                    <label className="font-weight-bold textoNegro" htmlFor="email">Tu correo:</label>
                     <input type="email" className="form-control" name="email" placeholder="Tu correo" onChange={handleChanges} id="email"/>
                     {errors.email&&<p>{errors.email}</p>}
                 </div>
@@ -27,7 +27,7 @@ const FormHome = ()=>{
 
                 <div className="row form-group">
             <div className="col-md-12">
-                    <label className="font-weight-bold textoNegro" htmlfor="comment">¿Qué nos quieres decir?</label>
+                    <label className="font-weight-bold textoNegro" htmlFor="comment">¿Qué nos quieres decir?</label>
                     <textarea cols="30" rows="5" className="form-control" type="text" name="comment" placeholder="Tus sugerencias" onChange={handleChanges}  id="comment"></textarea>
                     {errors.comment&&<p>{errors.comment}</p>}
                 </div>

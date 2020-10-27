@@ -8,18 +8,6 @@ const axios = require("axios").default;
 
 const Home = () => {
 
-  const [servicios, setServicios] = useState([]);
-  
-  useEffect(() => {
-    axios
-      .get(process.env.REACT_APP_API_URL + "/servicios")
-      .then((response) => {
-        setServicios(response.data);
-        console.log(servicios);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
   const [serviciosContratados, setServiciosContratados] = useState([]);
 
   useEffect(() => {
@@ -27,7 +15,6 @@ const Home = () => {
       .get(process.env.REACT_APP_API_URL + "/servicioContratado")
       .then((response) => {
         setServiciosContratados(response.data);
-        console.log(serviciosContratados);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -55,7 +42,6 @@ const Home = () => {
     let cantidad = 0;
 
     let filtrados = serviciosContratados.filter((da)=>da.servicio.categoria===el.toLowerCase());
-    console.log(serviciosContratados);
     filtrados.forEach((el2)=>{descripcion = el2.servicio.descripcion;});
     cantidad = filtrados.length;
     
@@ -88,7 +74,7 @@ const Home = () => {
               </p>
             </div>
             <div className="row justify-content-center">
-              <a className="banner_btn" href="#">Comienza</a>
+              <a className="banner_btn" href="./servicios">Comienza</a>
             </div>
           </div>
         </div>
@@ -165,7 +151,7 @@ const Home = () => {
       <div className="row">
 
         <div className="col-lg-6 mb-5 mb-lg-0">
-          <img src="images/aboutus.jpg" alt="Image" className="img-fluid altura1" />
+          <img src="images/aboutus.jpg" alt="SobreNosotros" className="img-fluid altura1" />
         </div>
         
         <div className="col-lg-5 ml-auto centrado">
