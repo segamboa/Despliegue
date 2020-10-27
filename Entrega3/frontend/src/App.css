@@ -401,11 +401,6 @@ body {
   background-image: url(./images/fondoPuntos.jpg);
 }
 
-.sticky {
-  position: fixed !important;
-  top: 0;
-  width: 100%;
-}
 
 .card-body:hover h5 {
   color: #ff5733;
