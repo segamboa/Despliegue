@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import FormHome from "./formHome";
 import { Button, Card, Accordion } from "react-bootstrap";
 
 
@@ -346,55 +347,8 @@ const Home = () => {
         <h2 className="font-weight-bold text-black mb-5 centrado textoNegro">
           ¡Contáctanos!
         </h2>
-  
-        <form action="#" className="p-5 bg-white fondo">
-          <div className="row form-group">
-            <div className="col-md-12 mb-3 mb-md-0">
-              <label className="font-weight-bold textoNegro" htmlFor="fullname"
-                >Tu nombre:</label
-              >
-              <input
-                type="text"
-                id="fullname"
-                className="form-control"
-                placeholder="Tu nombre"
-              />
-            </div>
-          </div>
-          <div className="row form-group">
-            <div className="col-md-12">
-              <label className="font-weight-bold textoNegro" htmlFor="email">Email:</label>
-              <input
-                type="email"
-                id="email"
-                className="form-control"
-                placeholder="Tu correo"
-              />
-            </div>
-          </div>
-  
-          <div className="row form-group">
-            <div className="col-md-12">
-              <label className="font-weight-bold textoNegro" htmlFor="message"
-                >¿Que nos quieres decir?:</label
-              >
-              <textarea
-                name="message"
-                id="message"
-                cols="30"
-                rows="5"
-                className="form-control"
-                placeholder="Tus sugerencias"
-              ></textarea>
-            </div>
-          </div>
-  
-          <div className="row form-group">
-            <div className="col-md-12">
-              <input type="submit" value="Enviar" className="btn" />
-            </div>
-          </div>
-        </form>
+        <FormHome />
+        
       </div>
     </div>
   </section>
