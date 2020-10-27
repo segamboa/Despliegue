@@ -3,7 +3,11 @@ import React, { useState, useEffect } from "react";
 import { Button, Card, Accordion, Form, FormControl } from "react-bootstrap";
 import RangeSlider from "react-bootstrap-range-slider";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {toast} from  'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //import { useAccordionToggle } from "react-bootstrap/AccordionToggle";
+
+toast.configure();
 
 const axios = require("axios").default;
 
@@ -104,6 +108,10 @@ const Servicios = () => {
     Seguridad: "seguridad",
   };
 
+  const notify=()=>{
+    toast('Contrato creado exitosamente, espera por la confirmación de tu proveedor!');
+  }
+
   const filtro = (cat, precio_max) => {
     //console.log(servicios);
     // let catVal = categoriasValue[cat] ? categoriasValue[cat] : "";
@@ -148,6 +156,7 @@ const Servicios = () => {
                   variant="primary"
                   onClick={() => {
                     contactar(index, cat);
+                    notify();
                   }}
                 >
                   Contratar
@@ -160,6 +169,7 @@ const Servicios = () => {
     });
   const contactar = async (indice, categoria) => {
     const servicioSeleccionado = filtro(categoria)[indice];
+    //notify();
     const response = await axios({
       method: "post",
       url: process.env.REACT_APP_API_URL + "/servicioContratado",
