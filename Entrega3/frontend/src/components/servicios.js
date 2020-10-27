@@ -21,6 +21,7 @@ const Servicios = () => {
       .catch((err) => console.log(err));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+
   /* const categorias = [
     "Carpintería",
     "Plomería",
@@ -131,7 +132,7 @@ const Servicios = () => {
                 {element.descripcion}
               </Card.Text>
               <div className="mt-auto">
-                <p className="table-card-price">${element.precio_minimo}</p>
+                <p className="table-card-price">Precio mínimo del servicio: ${element.precio_minimo}</p>
                 <Button
                   className="table-card-button"
                   variant="primary"
