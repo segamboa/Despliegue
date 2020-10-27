@@ -36,7 +36,7 @@ exports.crearCliente = async (req, res) => {
     .insertOne(newCliente)
     .then((data) => {
       //console.log(data);
-      res.status(200).send("Cliente creado");
+      res.send(data.ops)
     })
     .catch((err) => console.log(err));
 };

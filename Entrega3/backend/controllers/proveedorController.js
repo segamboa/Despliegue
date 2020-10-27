@@ -43,7 +43,7 @@ exports.crearProveedor = async (req, res) => {
     .insertOne(newProv)
     .then((data) => {
       //console.log(data);
-      res.status(200).send("Proveedor creado");
+      res.send(data.ops)
     })
     .catch((err) => console.log(err));
 };

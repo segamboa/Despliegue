@@ -15,6 +15,7 @@ exports.createUsuario = async (req, res) => {
 }
 
 exports.getUsuario = async (req, res) => {
+  console.log(req.params.id);
   const id = ObjectId(req.params.id)
   const usuario = await mongoClient.db(dbName).collection(collectionName).findOne({ _id: id })
   if (!usuario) {
