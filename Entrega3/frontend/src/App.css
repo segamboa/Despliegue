@@ -401,6 +401,7 @@ body {
   background-image: url(./images/fondoPuntos.jpg);
 }
 
+
 .card-body:hover h5 {
   color: #ff5733;
 }
@@ -586,13 +587,17 @@ th {
   color: #ff5733;
 }
 
-.table-header {
-  font-weight: bold;
+.table-card-title {
+  font-weight: bold !important;
 }
 
 .table-header-row {
   color: #ff5733 !important;
   margin: 0;
+}
+
+.table-card-col {
+  background-image: none;
 }
 
 .card-subtitle {

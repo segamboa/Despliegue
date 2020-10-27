@@ -36,28 +36,6 @@ const Footer = () => {
                 <h3>Follow Me</h3>
               </div>
               <p>Let us be social</p>
-              <ul className="list">
-                <li>
-                  <a href="#">
-                    <i className="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-dribbble"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-behance"></i>
-                  </a>
-                </li>
-              </ul>
             </aside>
           </div>
         </div>

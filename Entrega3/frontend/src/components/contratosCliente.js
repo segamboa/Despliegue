@@ -33,7 +33,7 @@ const ContratosCliente = () => {
         <td>{element.calificacion}</td>
         <td>{element.fecha_contrato}</td>
         <td>
-          <button>Ver proveedor</button>
+          <button className="btn btn-dark">Ver proveedor</button>
         </td>
       </tr>
     );
