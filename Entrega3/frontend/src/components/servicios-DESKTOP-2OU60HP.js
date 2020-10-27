@@ -18,7 +18,7 @@ const Servicios = () => {
         //console.log(response);
       })
       .catch((err) => console.log(err));
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   /* const categorias = [
     "Carpintería",
@@ -120,28 +120,17 @@ const Servicios = () => {
   const cartas = (cat, precio) =>
     filtro(cat, precio).map((element, index) => {
       return (
-        <div className=" col-lg-3 col-md-4 col-sm-6 table-card-col" key={index}>
-          <Card className="h-100" key={index} style={{ marginBottom: "10px" }}>
-            <Card.Body className="d-flex flex-column">
-              <Card.Title className="table-card-title">
-                {element.nombre}
-              </Card.Title>
-              <Card.Text className="table-card-text">
-                {element.descripcion}
+        <div className=" col-lg-3 col-md-4 col-sm-6" key={index}>
+          <Card key={index} style={{ marginBottom: "10px" }}>
+            <Card.Body>
+              <Card.Title>{element.nombre}</Card.Title>
+              <Card.Text>
+                <p>{element.descripcion}</p>
+                <br></br>
+                <strong>{element.precio_minimo}</strong>
               </Card.Text>
               <div className="mt-auto">
-                <p className="table-card-price">${element.precio_minimo}</p>
-                <Button
-                  className="table-card-button"
-                  variant="primary"
-                  style={{ marginBottom: "10px" }}
-                >
-                  {element.proveedor.nombre}
-                </Button>
-                <br />
-                <Button className="table-card-button" variant="primary">
-                  Contratar
-                </Button>
+                <Button variant="primary">{element.proveedor.nombre}</Button>
               </div>
             </Card.Body>
           </Card>
@@ -175,10 +164,6 @@ const Servicios = () => {
     );
   });
 
-  const handleSubmit = (event) => {
-    console.log(precioMin);
-  };
-
   return (
     <div>
       <div>
@@ -197,4 +182,5 @@ const Servicios = () => {
     </div>
   );
 };
+
 export default Servicios;
