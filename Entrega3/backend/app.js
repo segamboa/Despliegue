@@ -13,25 +13,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 
+const contratoProveedorRouter = require("./routes/contratoProveedor.js");
+app.use("/api/servicioContratado", contratoProveedorRouter);
+
 const proveedoresRouter = require("./routes/proveedor.js");
 app.use("/api/proveedores", proveedoresRouter);
 app.use(cors());
 
-const contratoProveedorRouter = require("./routes/contratoProveedor.js");
-app.use("/api/proveedores/contratos", contratoProveedorRouter);
-
 const servicioRouter = require("./routes/servicio.js");
 app.use("/api/servicios", servicioRouter);
 
-const contratoClienteRouter = require("./routes/contratoCliente.js");
-
-const usuariosRouter = require('./routes/usuario.js');
-app.use('/api/users', usuariosRouter);
+const clienteRouter = require("./routes/clienteRouter.js");
+app.use("/api/clientes", clienteRouter);
+const usuariosRouter = require("./routes/usuario.js");
+app.use("/api/users", usuariosRouter);
 
 const authRouter = require('./routes/auth.js')
 app.use('/api/auth', authRouter)
 
-app.use("/api/clientes/contratos",contratoClienteRouter);
 connectDb();
 
 module.exports = app;

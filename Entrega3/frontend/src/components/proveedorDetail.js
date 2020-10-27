@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import {useAuthState} from '../Context/context.js'
 const axios = require('axios').default
+=======
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+import { Button } from "react-bootstrap";
+
+const axios = require('axios').default;
+
+>>>>>>> 2f2433b20a449b23b5876e5b7f1434b90ea01625
 
 const ProveedorDetail = () => {
   const { id } = useParams()
@@ -32,13 +41,14 @@ const ProveedorDetail = () => {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return ( 
-    <div className ="texto">
+    <div className ="fondo">
       <h5>{proveedor.nombre}</h5>
         <p>
           Direccion: {proveedor.direccion} <br/>
           Ciudad: {proveedor.ciudad} <br/>
           Email: {proveedor.correo} <br/>
         </p>
+        <Button>Agregar servicio</Button>
       </div>
   )
 }
