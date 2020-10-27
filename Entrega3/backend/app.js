@@ -13,9 +13,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 
-const servicioContratadoRouter = require("./routes/servicioContratado.js");
-app.use("/api/proveedores/contratos", servicioContratadoRouter);
-app.use("/api/clientes/contratos", servicioContratadoRouter);
+const contratoProveedorRouter = require("./routes/contratoProveedor.js");
+app.use("/api/servicioContratado", contratoProveedorRouter);
 
 const proveedoresRouter = require("./routes/proveedor.js");
 app.use("/api/proveedores", proveedoresRouter);
