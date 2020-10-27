@@ -1,8 +1,8 @@
-import React from "react";
-import "./App.css";
+import React from 'react'
+import './App.css'
 
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 
 import Home from "./components/home.js";
 import Component1 from "./components/component1.js";
@@ -14,30 +14,33 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import ContratosCliente from "./components/contratosCliente.js";
 
-function App() {
-  return (
-    <Router>
-      <Navbar bg="dark" expand="md">
-        <Navbar.Brand href="/">Home</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="/component1">Component 1</Nav.Link>
-            <Nav.Link href="/servicios">Servicios</Nav.Link>
-            <Nav.Link href="/servicioContratado/cliente/:id">
-              Contratos cliente
-            </Nav.Link>
-            <Nav.Link href="/servicioContratado/proveedor/:id">
-              Contratos empresa
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+import { AuthProvider, useAuthState } from './Context/context.js'
+import Signup from './components/signup.js'
+import Login from './components/login.js'
 
-      <Switch>
-        <Route path="/component1">
-          <Component1 />
-        </Route>
+
+import Navbar2 from './components/navbar.js'
+
+function App () {
+  
+  return (
+    <AuthProvider>
+      <Router>
+        <Navbar bg='dark' expand='md'>
+          <Navbar.Brand href='/'>Home</Navbar.Brand>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+          <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav className='mr-auto'>
+              <Nav.Link href='/component1'>Component 1</Nav.Link>
+            <Navbar2/>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+
+        <Switch>
+          <Route path='/component1'>
+            <Component1 />
+          </Route>
 
         <Route path="/servicioContratado/proveedor/:id">
           <ContratosProveedor />
@@ -53,13 +56,25 @@ function App() {
         <Route path="/servicioContratado/cliente/:id">
           <ContratosCliente />
         </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+          <Route path='/proveedores/contratos/:id'>
+            <ContratosProveedor />
+          </Route>
+
+          <Route path='/signup'>
+            <Signup />
+          </Route>
+    <Route path='/login'>
+            <Login />
+          </Route>
+
+          <Route path='/'>
+            <Home />
+          </Route>
       <Footer></Footer>
-    </Router>
-  );
+        </Switch>
+      </Router>
+    </AuthProvider>
+  )
 }
 
-export default App;
+export default App

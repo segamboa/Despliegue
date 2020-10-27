@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
-import { Button } from "react-bootstrap";
-
-const axios = require('axios').default;
-
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router'
+import {Button} from 'react-bootstrap'
+const axios = require('axios').default
 
 const ProveedorDetail = () => {
   const { id } = useParams()
+
 
   const [proveedor, setProveedor] = useState({
     _id: '',
