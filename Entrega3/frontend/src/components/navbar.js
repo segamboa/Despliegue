@@ -1,12 +1,18 @@
 import React from 'react'
-import { useAuthState } from '../Context/context.js'
+import { useAuthState, useAuthDispatch } from '../Context/context.js'
 import Nav from 'react-bootstrap/Nav'
 
 const Navbar2 = () => {
   const user = useAuthState()
   console.log(user)
+  const dispatch = useAuthDispatch()
+  const logout = () => {
+    dispatch({ uid: '', role: 'visitor' })
+  }
   if (user.uid && user.role !== 'visitor') {
-    return <div />
+    return (
+      <Nav.Link href='#' onClick={logout}>Logout</Nav.Link>
+    )
   } else {
     return (
       <div className=''>
