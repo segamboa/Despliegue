@@ -401,6 +401,7 @@ body {
   background-image: url(./images/fondoPuntos.jpg);
 }
 
+
 .card-body:hover h5 {
   color: #ff5733;
 }
