@@ -18,7 +18,7 @@ const Servicios = () => {
         //console.log(response);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   /* const categorias = [
     "Carpintería",

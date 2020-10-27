@@ -9,6 +9,7 @@ import Component1 from "./components/component1.js";
 import ProveedorDetail from "./components/proveedorDetail.js";
 import ContratosProveedor from "./components/contratosProveedor.js";
 import Servicios from "./components/servicios.js";
+import Footer from "./components/footer.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import ContratosCliente from "./components/contratosCliente.js";
@@ -21,7 +22,14 @@ function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/servicios">Servicio</Nav.Link>
+            <Nav.Link href="/component1">Component 1</Nav.Link>
+            <Nav.Link href="/servicios">Servicios</Nav.Link>
+            <Nav.Link href="/servicioContratado/cliente/:id">
+              Contratos cliente
+            </Nav.Link>
+            <Nav.Link href="/servicioContratado/proveedor/:id">
+              Contratos empresa
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -31,7 +39,7 @@ function App() {
           <Component1 />
         </Route>
 
-        <Route path="/proveedores/contratos/:id">
+        <Route path="/servicioContratado/proveedor/:id">
           <ContratosProveedor />
         </Route>
 
@@ -42,13 +50,14 @@ function App() {
         <Route path="/proveedores/:id">
           <ProveedorDetail />
         </Route>
-        <Route path="/clientes/contratos/:id">
+        <Route path="/servicioContratado/cliente/:id">
           <ContratosCliente />
         </Route>
         <Route path="/">
           <Home />
         </Route>
       </Switch>
+      <Footer></Footer>
     </Router>
   );
 }
