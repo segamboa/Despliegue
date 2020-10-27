@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import FormHome from "./formHome";
 import { Button, Card, Accordion } from "react-bootstrap";
-
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 
 const axios = require("axios").default;
 
@@ -345,6 +345,11 @@ const Home = () => {
         
       </div>
     </div>
+    <div>
+        <ScrollUpButton
+          EasingType="easeInOutQuad"
+        />
+      </div>
   </section>
   </main></div>);
 };
