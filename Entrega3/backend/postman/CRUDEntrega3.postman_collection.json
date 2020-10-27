@@ -1,0 +1,1097 @@
+{
+	"info": {
+		"_postman_id": "8e41b41d-bec3-4ae9-9a85-8f959523fc5d",
+		"name": "CRUDEntrega3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ServiciosContratados",
+			"item": [
+				{
+					"name": "Crear proveedor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a2502a1c-3b9d-4eb5-b0d5-8bd95c912c4c",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"new_id_proveedor\",data[0]._id);\r",
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"Conavi\",\n\t\"direccion\" : \"Cra 48 #150a - 31\",\n\t\"telefono\": \"123-456-7890\",\n\t\"nit\": \"00-000-0000\",\n\t\"ciudad\": \"Bogotá\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/api/proveedores/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"proveedores",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear cliente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9a05136a-a9a2-4bd5-bcdf-96e7dcf27bdc",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"new_id_cliente\",data[0]._id);\r",
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"Daniel Galindo\",\n\t\"telefono\" : \"301-713-7750\",\n\t\"correo\": \"d.galindo@uniandes.edu.co\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/api/clientes/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create servicio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0a762972-0e85-4105-af7c-0578ad2fee93",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"new_id_servicio\",data[0]._id);\r",
+									"tests[\"no genera error\"] = responseCode.code === 200;\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"proveedor\":{\n\t\t\"_id\": \"5f964d8afc13ae3fab000064\",\n    \t\"nombre\": \"Steuber, Kiehn and Rath\",\n    \t\"direccion\": \"75816 Dottie Place\",\n    \t\"telefono\": \"237-582-5949\",\n\t\t\"correo\": \"bdetoile0@va.gov\",\n    \t\"nit\": \"61-129-7361\"\n\t},\n\t\"nombre\": \"Arreglar mueble\",\n\t\"descripcion\": \"Arreglamos sus muebles de madera\",\n\t\"precio_minimo\": 420,\n\t\"categoria\": \"carpinteria\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/api/servicios/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"servicios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear servicioContratado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24019d54-3f07-4d71-a8df-1acefab0e0e2",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"new_id_servicioContratado\",data._id);\r",
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"servicio\":{\n        \"proveedor\":{\n\t\t\"_id\": \"5f964d8afc13ae3fab000064\",\n    \t\"nombre\": \"Steuber, Kiehn and Rath\",\n    \t\"direccion\": \"75816 Dottie Place\",\n    \t\"telefono\": \"237-582-5949\",\n\t\t\"correo\": \"bdetoile0@va.gov\",\n    \t\"nit\": \"61-129-7361\"\n\t},\n\t\"nombre\": \"Arreglar mueble\",\n\t\"descripcion\": \"Arreglamos sus muebles de madera\",\n\t\"precio_minimo\": 420,\n\t\"categoria\": \"carpinteria\"\n    },\n    \"cliente\":{\n        \"nombre\": \"Daniel Galindo\",\n\t    \"telefono\" : \"301-713-7750\",\n\t    \"correo\": \"d.galindo@uniandes.edu.co\"\n    },\n    \"precio_pactado\": 4000, \n    \"fecha_contrato\": \"24/08/01\", \n    \"calificacion\": 4\n}\n"
+						},
+						"url": {
+							"raw": "localhost:3000/api/servicioContratado/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"servicioContratado",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get contratos proveedor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "433e77d9-d9ca-42e7-8731-c09a4cf26404",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/servicioContratado/proveedor/{{new_id_proveedor}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"servicioContratado",
+								"proveedor",
+								"{{new_id_proveedor}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get contratos cliente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "644d84e6-48ca-487b-b7aa-767adc066063",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/servicioContratado/cliente/{{new_id_cliente}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"servicioContratado",
+								"cliente",
+								"{{new_id_cliente}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get contratos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b85fadfc-9ed3-4bdb-ae0b-7894d0edef93",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/servicioContratado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"servicioContratado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get contrato cliente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "eec0cf65-6f4b-45a0-8d47-a61abda0c9fd",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/servicioContratado/cliente/{{new_id_cliente}}/contrato/{{new_id_servicioContratado}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"servicioContratado",
+								"cliente",
+								"{{new_id_cliente}}",
+								"contrato",
+								"{{new_id_servicioContratado}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Get Clientes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c89810ea-ccf2-430e-93b6-681db08db576",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/clientes/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear cliente Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9f606309-2f3d-4c59-90a0-ff589a24176a",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"new_id\",data[0]._id);\r",
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"Daniel Galindo\",\n\t\"telefono\" : \"301-713-7750\",\n\t\"correo\": \"d.galindo@uniandes.edu.co\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/api/clientes/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cliente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "20773999-efa5-435c-8a5a-de692e396379",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/clientes/{{new_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								"{{new_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar cliente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a33afbbf-2c12-46ef-aefa-e2416ef16679",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"Daniel Galindo Ruiz\",\n\t\"telefono\" : \"301-713-7750\",\n\t\"correo\": \"d.galindo@uniandes.edu.co\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/api/clientes/{{new_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								"{{new_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar cliente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a6c9807b-0c36-4aa7-b934-32a6fd081215",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:3000/api/clientes/{{new_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								"{{new_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Proveedores",
+			"item": [
+				{
+					"name": "Get Proveedores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "81213e28-65e9-4d51-a3fc-5951fa7a7d42",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/proveedores/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"proveedores",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear proveedor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "45526e3b-eb63-445c-8bb2-b86e21ffd11b",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"new_id\",data[0]._id);\r",
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"Conavi\",\n\t\"direccion\" : \"Cra 48 #150a - 31\",\n\t\"telefono\": \"123-456-7890\",\n\t\"nit\": \"00-000-0000\",\n\t\"ciudad\": \"Bogotá\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/api/proveedores/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"proveedores",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get proveedor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3f5079a8-e97c-430f-87d9-5ed38235bd20",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/proveedores/{{new_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"proveedores",
+								"{{new_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar proveedor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "606fe851-d634-4aa9-9662-a8bbf54bcb53",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"ConaviComcel2005\",\n\t\"direccion\" : \"Cra 17 #145 - 75\",\n\t\"telefono\": \"012-345-6789\",\n\t\"nit\": \"11-111-1111\",\n\t\"ciudad\": \"Chía\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/api/proveedores/{{new_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"proveedores",
+								"{{new_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar proveedor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6d5c94cd-0290-4810-af36-338533d94447",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:3000/api/proveedores/{{new_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"proveedores",
+								"{{new_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Servicios",
+			"item": [
+				{
+					"name": "Get servicios",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "505b46f6-835c-455f-8161-2efd39d3013c",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/servicios/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"servicios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create servicio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f467440d-7f9e-4499-b0c6-ae7172405b69",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"new_id\",data[0]._id);\r",
+									"tests[\"no genera error\"] = responseCode.code === 200;\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"proveedor\":{\n\t\t\"_id\": \"5f964d8afc13ae3fab000064\",\n    \t\"nombre\": \"Steuber, Kiehn and Rath\",\n    \t\"direccion\": \"75816 Dottie Place\",\n    \t\"telefono\": \"237-582-5949\",\n\t\t\"correo\": \"bdetoile0@va.gov\",\n    \t\"nit\": \"61-129-7361\"\n\t},\n\t\"nombre\": \"Arreglar mueble\",\n\t\"descripcion\": \"Arreglamos sus muebles de madera\",\n\t\"precio_minimo\": 420,\n\t\"categoria\": \"carpinteria\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/api/servicios/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"servicios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get servicio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "10201efb-7c74-4aca-8b14-96609a478796",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/servicios/{{new_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"servicios",
+								"{{new_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar servicio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e64e4b70-902e-4dac-8270-b2e788fda363",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"proveedor\":{\n\t\t\"_id\": \"5f964d8afc13ae3fab000064\",\n    \t\"nombre\": \"Steuber, Kiehn and Rath\",\n    \t\"direccion\": \"75816 Dottie Place\",\n    \t\"telefono\": \"237-582-5949\",\n\t\t\"correo\": \"bdetoile0@va.gov\",\n    \t\"nit\": \"61-129-7361\"\n\t},\n\t\"nombre\": \"Arreglar muebles\",\n\t\"descripcion\": \"Arreglamos sus muebles de madera y tambien de metal porque si\",\n\t\"precio_minimo\": 420.69,\n\t\"categoria\": \"carpinteria\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/api/servicios/{{new_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"servicios",
+								"{{new_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar servicio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e88b9420-5a73-407b-828d-b8ea58c07d77",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:3000/api/servicios/{{new_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"servicios",
+								"{{new_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "GetUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a0a64c88-6eba-4428-8a19-df4dd766689e",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a3c4d142-41e8-42bf-9f54-f7af4cb91835",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"new_id\",data[0]._id);\r",
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Jorge Perez\",\r\n    \"telefono\": \"1231244\",\r\n    \"correo\": \"cosas@hotmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9af78449-b8ca-4d41-b138-719646807207",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/{{new_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"{{new_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f68e7787-270c-45a1-8766-35c87f9116b4",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Andrea Santos\",\r\n    \"telefono\": \"43534\",\r\n    \"correo\": \"cosas@hotmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/{{new_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"{{new_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71823494-41a2-493a-b80f-55f5823c1524",
+								"exec": [
+									"tests[\"no genera error\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/{{new_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"{{new_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
