@@ -17,7 +17,7 @@ import ContratosCliente from "./components/contratosCliente.js";
 function App() {
   return (
     <Router>
-      <Navbar bg="dark" expand="md">
+      <Navbar bg="dark" expand="md" className="sticky">
         <Navbar.Brand href="/">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
