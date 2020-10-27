@@ -13,4 +13,6 @@ router.get(
 router.get("/cliente/:id", serviciosContratados.getContratosCliente);
 router.get("/", serviciosContratados.getServiciosContratados);
 router.post("/", serviciosContratados.postContrato);
+router.put("/cliente/:id/contrato/:idContrato",serviciosContratados.putContrato);
+router.delete("/cliente/:id/contrato/:idContrato",serviciosContratados.deleteContrato);
 module.exports = router;

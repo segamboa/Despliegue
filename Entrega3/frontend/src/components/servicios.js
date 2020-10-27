@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 //import { useParams } from "react-router";
-import { Button, Card, Accordion } from "react-bootstrap";
+import { Button, Card, Accordion, Form, FormControl } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 //import { useAccordionToggle } from "react-bootstrap/AccordionToggle";
 
@@ -8,17 +8,19 @@ const axios = require("axios").default;
 
 const Servicios = () => {
   const [servicios, setServicios] = useState([]);
+  const [precioMin, setPrecioMin] = useState(0);
 
   useEffect(() => {
     axios
       .get(process.env.REACT_APP_API_URL + "/servicios")
       .then((response) => {
         setServicios(response.data);
+        //console.log(response);
       })
       .catch((err) => console.log(err));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const categorias = [
+  /* const categorias = [
     "Carpintería",
     "Plomería",
     "Diseño interiores",
@@ -73,27 +75,104 @@ const Servicios = () => {
         (categoria) => categoria.categoria === "seguridad"
       );
     }
+  }; */
+
+  const categorias = [
+    "Carpintería",
+    "Plomería",
+    "Diseño interiores",
+    "Jardinería",
+    "Tapicería",
+    "Remodelación",
+    "Construcción",
+    "Demolición",
+    "Limpieza",
+    "Seguridad",
+  ];
+
+  const categoriasValue = {
+    Carpintería: "carpinteria",
+    Plomería: "plomeria",
+    "Diseño interiores": "disenio_interiores",
+    Jardinería: "jardineria",
+    Tapicería: "tapiceria",
+    Remodelación: "remodelacion",
+    Construcción: "construccion",
+    Demolición: "demolicion",
+    Limpieza: "limpieza",
+    Seguridad: "seguridad",
   };
-  const cartas = (cat) =>
-    filtro(cat).map((element, index) => {
+
+  const filtro = (cat, precio_min, precio_max) => {
+    //console.log(servicios);
+    // let catVal = categoriasValue[cat] ? categoriasValue[cat] : "";
+    // let preVal = precio_min ? precio_min : 0;
+    // let maxVal = precio_max ? precio_min : Number.MAX_SAFE_INTEGER;
+    return servicios.filter((servicio) => {
       return (
-        <div className=" col-lg-3 col-sm-6" key={index}>
-          <Card key={index} style={{ marginBottom: "10px" }}>
-            <Card.Body>
-              <Card.Title>{element.nombre}</Card.Title>
-              <Card.Text>
-                {element.descripcion} <br></br>
-                <strong>Precio mínimo: ${element.precio_minimo}</strong>
+        servicio.categoria ===
+          (categoriasValue[cat] ? categoriasValue[cat] : "") &&
+        servicio.precio_minimo >= (precio_min ? precio_min : 0)
+      );
+    });
+  };
+
+  const cartas = (cat, precio) =>
+    filtro(cat, precio).map((element, index) => {
+      return (
+        <div className=" col-lg-3 col-md-4 col-sm-6 table-card-col" key={index}>
+          <Card className="h-100" key={index} style={{ marginBottom: "10px" }}>
+            <Card.Body className="d-flex flex-column">
+              <Card.Title className="table-card-title">
+                {element.nombre}
+              </Card.Title>
+              <Card.Text className="table-card-text">
+                {element.descripcion}
               </Card.Text>
-              <Button variant="primary" style={{ marginBottom: "10px" }}>{element.proveedor.nombre}</Button>
-              <br></br>
-              <Button variant="primary">Contratar</Button>
+              <div className="mt-auto">
+                <p className="table-card-price">${element.precio_minimo}</p>
+                <Button
+                  className="table-card-button"
+                  variant="primary"
+                  style={{ marginBottom: "10px" }}
+                >
+                  {element.proveedor.nombre}
+                </Button>
+                <br />
+                <Button
+                  className="table-card-button"
+                  variant="primary"
+                  onClick={() => {
+                    contactar(index, cat);
+                  }}
+                >
+                  Contratar
+                </Button>
+              </div>
             </Card.Body>
           </Card>
         </div>
       );
     });
-
+  const contactar = async (indice, categoria) => {
+    const servicioSeleccionado = filtro(categoria)[indice];
+    const response = await axios({
+      method: "post",
+      url: process.env.REACT_APP_API_URL + "/servicioContratado",
+      headers: {},
+      data: {
+        servicio: servicioSeleccionado,
+        cliente: {
+          _id: "5f964dcdfc13ae5ecc0003f6",
+          nombre: "acaaaA",
+          telefono: "127-460-7065",
+          correo: "gevette@trellian.com",
+        },
+      },
+    });
+    console.log(response);
+    // const response = await axios.post(process.env.REACT_APP_API_URL + '/servicioContratado');
+  };
   // function CustomToggle({ children, eventKey }) {
   //   const decoratedOnClick = useAccordionToggle(eventKey, () => (
   //    setCard(filtro(children)),
@@ -113,12 +192,33 @@ const Servicios = () => {
         </Card.Header>
         <Accordion.Collapse eventKey={index + 1}>
           <Card.Body>
-            <div className="row">{cartas(element)}</div>
+            <div className="row">{cartas(element, precioMin)}</div>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
     );
   });
-  return <Accordion>{elements}</Accordion>;
+
+  const handleSubmit = (event) => {
+    console.log(precioMin);
+  };
+
+  return (
+    <div>
+      <div>
+        <Form>
+          <Form.Label htmlFor="filter"></Form.Label>
+          <FormControl
+            name="Filter"
+            placeholder="Precio Mínimo"
+            type="number"
+            id="filter"
+            onChange={(event) => setPrecioMin(event.target.value)}
+          />
+        </Form>
+      </div>
+      <Accordion>{elements}</Accordion>
+    </div>
+  );
 };
 export default Servicios;

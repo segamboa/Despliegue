@@ -37,6 +37,36 @@
   }
 }
 
+/* Cards servicios */
+
+.table-card-price {
+  font-weight: bold;
+}
+
+.table-card-text {
+  text-align: justify;
+}
+
+.table-card-col {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.card-row {
+  margin: auto;
+  padding: 2em;
+}
+
+.table-card-col {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.table-card-title {
+  font-weight: bold;
+}
 /* Styles del home */
 
 @import url("https://fonts.googleapis.com/css?family=Heebo:300,400,500,700|Roboto:300,400,500,700");
