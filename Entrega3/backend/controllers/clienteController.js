@@ -35,7 +35,6 @@ exports.crearCliente = async (req, res) => {
     .collection(collectionName)
     .insertOne(newCliente)
     .then((data) => {
-      //console.log(data);
       res.send(data.ops)
     })
     .catch((err) => console.log(err));

@@ -57,7 +57,6 @@ exports.crearServicio = async (req, res) => {
       .collection(collectionName)
       .insertOne(servAdd)
       .then((data) => {
-        //console.log(data);
         res.send(data.ops)
       })
       .catch((err) => console.log(err));
