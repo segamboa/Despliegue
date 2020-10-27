@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-//import { Button, Form, Dropdown, DropdownButton } from "react-bootstrap";
-
+import { Button } from "react-bootstrap";
+//import ProveedorDetail from "./proveedorDetail.js";
 const axios = require("axios").default;
 
 const ContratosCliente = () => {
@@ -11,10 +11,13 @@ const ContratosCliente = () => {
   const [servicios, setServicios] = useState([]);
   const [value, setValue] = useState({});
 
-  const handleSelect = (evt) => {
-    console.log(evt.target.value);
-    setValue(evt.target.value);
+  /*
+  const handleClick = (provId, evt) => {
+    evt.preventDefault();
+    console.log(provId);
+    return <ProveedorDetail></ProveedorDetail>;
   };
+  */
 
   useEffect(() => {
     axios
@@ -33,7 +36,14 @@ const ContratosCliente = () => {
         <td>{element.calificacion}</td>
         <td>{element.fecha_contrato}</td>
         <td>
-          <button className="btn btn-dark">Ver proveedor</button>
+          <Button
+            className="btn btn-dark"
+            variant="primary"
+            style={{ marginBottom: "10px" }}
+            href={`/proveedores/${element.servicio.proveedor._id}`}
+          >
+            Ver proveedor
+          </Button>
         </td>
       </tr>
     );
