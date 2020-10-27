@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 //import { useParams } from "react-router";
-import { Button, Card, Accordion, Form, FormControl } from "react-bootstrap";
+import { Button, Card, Accordion, Form, FormControl} from "react-bootstrap";
+import RangeSlider from 'react-bootstrap-range-slider';
 import "bootstrap/dist/css/bootstrap.min.css";
 //import { useAccordionToggle } from "react-bootstrap/AccordionToggle";
 
@@ -182,16 +183,17 @@ const Servicios = () => {
 
   return (
     <div>
-      <div>
+      <div className="container-fluid">
         <Form>
-          <Form.Label htmlFor="filter"></Form.Label>
-          <FormControl
-            name="Filter"
-            placeholder="Precio Mínimo"
-            type="number"
-            id="filter"
-            onChange={(event) => setPrecioMin(event.target.value)}
-          />
+          <Form.Label htmlFor="filter" style={{ marginTop: "10px" }}> Filtrar por precio:</Form.Label>
+          <div className="col-4">
+          <RangeSlider
+          min={0}
+          max={1490}
+          value={precioMin}
+          onChange={(event) => setPrecioMin(event.target.value)}
+        />
+        </div>
         </Form>
       </div>
       <Accordion>{elements}</Accordion>
