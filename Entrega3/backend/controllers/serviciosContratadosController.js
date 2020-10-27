@@ -1,8 +1,17 @@
 const { mongoClient } = require("../lib/mongodb.js");
 const servicioController = require("./servicioController.js");
-const ObjectId = require("mongodb").ObjectId;
 const dbName = process.env.DB_NAME;
 const collectionName = "serviciosContratados";
+const ObjectId = require("mongodb").ObjectId;
+const Joi = require("joi");
+
+const validate = (mensaje) => {
+  const schema = Joi.object({
+    servicio: Joi.object().required(),
+  });
+  return schema.validate(mensaje);
+};
+
 /*EMPRESA*/
 exports.getServiciosContratadosProveedor = async (req, res) => {
   const idProveedor = ObjectId(req.params.id);
@@ -29,6 +38,7 @@ exports.getServiciosContratados = async (req, res) => {
 /* CLIENTES*/
 exports.getContratosCliente = async (req, res) => {
   const idCliente = ObjectId(req.params.id);
+  console.log(typeof idCliente);
   const contratos = await mongoClient
     .db(dbName)
     .collection(collectionName)
@@ -57,7 +67,6 @@ exports.getContrato = async (req, res) => {
   res.send(contratos);
 };
 exports.postContrato = async (req, res) => {
-  //tomo el servicio de la carta que ya tiene asignado un proveedor, eel cliente es el mismo de la seccion
   let contrato = {
     servicio: req.body.servicio,
     cliente: req.body.cliente,
@@ -74,20 +83,30 @@ exports.postContrato = async (req, res) => {
     .insertOne(contrato);
   res.send(contratos.ops[0]);
 };
+
 exports.putContrato = async (req, res) => {
-  const idCliente = ObjectId(req.params.id);
-  const idContrato = ObjectId(req.params.idContrato);
-  let contrato = {
-    servicio: req.body.servicio,
-    cliente: req.body.cliente,
-  };
-  conn.then((client) => {
-    mongoClient
+  const { error } = validate(req.body);
+  if (error) {
+    console.log(error);
+    return res.status(412).send(error);
+  } else {
+    const idCliente = ObjectId(req.params.id);
+    const idContrato = ObjectId(req.params.idContrato);
+    let contrato = {
+      servicio: req.body.servicio,
+    };
+    contrato.servicio._id = ObjectId(contrato.servicio._id);
+    contrato.servicio.proveedor._id = ObjectId(contrato.servicio.proveedor._id);
+    const contratos = await mongoClient
       .db(dbName)
       .collection(collectionName)
-      .updateOne(
-        { _id: idContrato, "cliente._id": idCliente },
-        { $set: { servicio: contrato.servicio, cliente: contrato.cliente } }
-      );
-  });
+      .updateOne({ _id: idContrato }, { $set: { servicio: contrato.servicio } });
+      res.send(contratos)
+  }
+};
+exports.deleteContrato = async (req, res) => {
+  const idCliente = ObjectId(req.params.id);
+  const idContrato = ObjectId(req.params.idContrato);
+  const contratos = await mongoClient.db(dbName).collection(collectionName).deleteOne({ _id: idContrato });
+  res.send(contratos);
 };

@@ -143,7 +143,13 @@ const Servicios = () => {
                   {element.proveedor.nombre}
                 </Button>
                 <br />
-                <Button className="table-card-button" variant="primary">
+                <Button
+                  className="table-card-button"
+                  variant="primary"
+                  onClick={() => {
+                    contactar(index, cat);
+                  }}
+                >
                   Contratar
                 </Button>
               </div>
@@ -152,7 +158,25 @@ const Servicios = () => {
         </div>
       );
     });
-
+  const contactar = async (indice, categoria) => {
+    const servicioSeleccionado = filtro(categoria)[indice];
+    const response = await axios({
+      method: "post",
+      url: process.env.REACT_APP_API_URL + "/servicioContratado",
+      headers: {},
+      data: {
+        servicio: servicioSeleccionado,
+        cliente: {
+          _id: "5f964dcdfc13ae5ecc0003f6",
+          nombre: "acaaaA",
+          telefono: "127-460-7065",
+          correo: "gevette@trellian.com",
+        },
+      },
+    });
+    console.log(response);
+    // const response = await axios.post(process.env.REACT_APP_API_URL + '/servicioContratado');
+  };
   // function CustomToggle({ children, eventKey }) {
   //   const decoratedOnClick = useAccordionToggle(eventKey, () => (
   //    setCard(filtro(children)),
