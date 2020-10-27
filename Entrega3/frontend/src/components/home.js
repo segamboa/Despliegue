@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import FormHome from "./formHome";
 import { Button, Card, Accordion } from "react-bootstrap";
 
@@ -55,9 +56,10 @@ const Home = () => {
     serviciosContratados2.push(cantidades[i]);
     i = i + 1;
   }
+  i=0;
 
 
-  return (<><header className="banner"> 
+  return (<div><header className="banner"> 
   <div className="banner_inner">
     <div className="container">
       <div className="row align-items-center">
@@ -292,19 +294,25 @@ const Home = () => {
   <section className="serviciosPopulares fondo">
     <div className="container">
       <div className="titulo centrado2">
+        <div>
         <span className="sub-title centrado"
           >¿Qué prefieren nuestros clientes?</span
         >
+        </div>
+        <div>
         <h2 className="font-weight-bold text-black mb-5 centrado texto">
           Servicios Populares
         </h2>
-        <p className="texto">Los tres servicios más populares entre nuestros clientes son:</p>
+        </div>
+        <div>
+        <p key="1" className="texto">Los tres servicios más populares entre nuestros clientes son:</p>
+        </div>
       </div>
 
       
   
       <div id="filaServiciosPopulares" className="row">
-  {serviciosContratados2.map(s=> <div className="col-12 col-md-6 col-lg-4">
+  {serviciosContratados2.map((s, index)=> <div key={index} className="col-12 col-md-6 col-lg-4">
     <div className="card mb-3 cosa">
       <div className="row no-gutters">
         <div className="col-md-4">
@@ -333,12 +341,12 @@ const Home = () => {
         <h2 className="font-weight-bold text-black mb-5 centrado textoNegro">
           ¡Contáctanos!
         </h2>
-        <FormHome />
+        <FormHome key="1"/>
         
       </div>
     </div>
   </section>
-  </main></>);
+  </main></div>);
 };
 
 export default Home;
