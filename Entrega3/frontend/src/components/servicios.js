@@ -135,6 +135,7 @@ const Servicios = () => {
                   className="table-card-button"
                   variant="primary"
                   style={{ marginBottom: "10px" }}
+                  href={`proveedores/${element.proveedor._id}`}
                 >
                   {element.proveedor.nombre}
                 </Button>
