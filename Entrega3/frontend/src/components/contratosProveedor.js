@@ -8,7 +8,7 @@ function RenderContratosProveedor({ contrato, nCliente }) {
       <th scope="row">{nCliente}</th>
       <td>{contrato.cliente.nombre}</td>
       <td>{contrato.fecha_contrato}</td>
-      <td>{contrato.precio_pactado}</td>
+      <td>{"$" + contrato.precio_pactado}</td>
     </>
   );
 }
