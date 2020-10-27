@@ -14,12 +14,6 @@ exports.getProveedor = async (req, res) => {
     res.status(404).send("no proveedor  with the given id");
     return;
   }
-  console.log(typeof proveedor._id);
-  console.log(proveedor._id);
-  for (const [key, value] of Object.entries(proveedor._id)) {
-    console.log(`${key}: ${value}`);
-  }
-
   res.send(proveedor);
 };
 
