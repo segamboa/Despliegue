@@ -1,27 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import FormHome from "./formHome";
 import { Button, Card, Accordion } from "react-bootstrap";
+
 
 const axios = require("axios").default;
 
 const Home = () => {
 
-  const [servicios, setServicios] = useState([]);
-  
-  useEffect(() => {
-    axios
-      .get(process.env.REACT_APP_API_URL + "/servicios")
-      .then((response) => {
-        setServicios(response.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
   const [serviciosContratados, setServiciosContratados] = useState([]);
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_API_URL + "/proveedores/contratos/")
+      .get(process.env.REACT_APP_API_URL + "/servicioContratado")
       .then((response) => {
         setServiciosContratados(response.data);
       })
@@ -49,18 +40,11 @@ const Home = () => {
   categorias.forEach((el) => {
     let descripcion = "";
     let cantidad = 0;
-    let ids = [];
 
-    servicios.forEach((element) => {
-      descripcion = element.descripcion;
-      if (element.categoria === el.toLowerCase()) {
-        ids.push(element._id);
-      }
-    });
-
-    ids.forEach((id) => {
-      cantidad = cantidad + serviciosContratados.filter((da) => da.servicio._id === id).length;
-    });
+    let filtrados = serviciosContratados.filter((da)=>da.servicio.categoria===el.toLowerCase());
+    filtrados.forEach((el2)=>{descripcion = el2.servicio.descripcion;});
+    cantidad = filtrados.length;
+    
 
     cantidades.push({ tipo: el, desc: descripcion, num: cantidad });
   });
@@ -71,7 +55,6 @@ const Home = () => {
     serviciosContratados2.push(cantidades[i]);
     i = i + 1;
   }
-  console.log(serviciosContratados2)
 
 
   return (<><header className="banner"> 
@@ -91,7 +74,7 @@ const Home = () => {
               </p>
             </div>
             <div className="row justify-content-center">
-              <a className="banner_btn" href="#">Comienza</a>
+              <a className="banner_btn" href="./servicios">Comienza</a>
             </div>
           </div>
         </div>
@@ -168,7 +151,7 @@ const Home = () => {
       <div className="row">
 
         <div className="col-lg-6 mb-5 mb-lg-0">
-          <img src="images/aboutus.jpg" alt="Image" className="img-fluid altura1" />
+          <img src="images/aboutus.jpg" alt="SobreNosotros" className="img-fluid altura1" />
         </div>
         
         <div className="col-lg-5 ml-auto centrado">
@@ -350,55 +333,8 @@ const Home = () => {
         <h2 className="font-weight-bold text-black mb-5 centrado textoNegro">
           ¡Contáctanos!
         </h2>
-  
-        <form action="#" className="p-5 bg-white fondo">
-          <div className="row form-group">
-            <div className="col-md-12 mb-3 mb-md-0">
-              <label className="font-weight-bold textoNegro" htmlFor="fullname"
-                >Tu nombre:</label
-              >
-              <input
-                type="text"
-                id="fullname"
-                className="form-control"
-                placeholder="Tu nombre"
-              />
-            </div>
-          </div>
-          <div className="row form-group">
-            <div className="col-md-12">
-              <label className="font-weight-bold textoNegro" htmlFor="email">Email:</label>
-              <input
-                type="email"
-                id="email"
-                className="form-control"
-                placeholder="Tu correo"
-              />
-            </div>
-          </div>
-  
-          <div className="row form-group">
-            <div className="col-md-12">
-              <label className="font-weight-bold textoNegro" htmlFor="message"
-                >¿Que nos quieres decir?:</label
-              >
-              <textarea
-                name="message"
-                id="message"
-                cols="30"
-                rows="5"
-                className="form-control"
-                placeholder="Tus sugerencias"
-              ></textarea>
-            </div>
-          </div>
-  
-          <div className="row form-group">
-            <div className="col-md-12">
-              <input type="submit" value="Enviar" className="btn" />
-            </div>
-          </div>
-        </form>
+        <FormHome />
+        
       </div>
     </div>
   </section>
